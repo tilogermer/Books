@@ -1,0 +1,17 @@
+<div class="container">
+<div class="row">
+   <% @books.each do |book| %>
+     <div class="col-md-3">
+        
+        <a href="/books/<%= book.id %>">
+        <%= image_tag (book.coverpath), class: "book" %>
+        <h6><%= book.title %></h6>
+        </a>
+   
+     </div>
+     <% end %>
+
+</div>
+<%= link_to "Add Book", new_book_path %>
+</div>
+

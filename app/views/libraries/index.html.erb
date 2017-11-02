@@ -1,0 +1,22 @@
+
+<div class="container">
+<h2>Libraries</h2>
+
+<a class="btn btn-primary btn-lg" href="/libraries/new" role="button">New</a>
+
+<table class="table table-striped">
+	<tr>
+		<th>Library</th>
+		<th>Books</th>
+		<th>Actions</th>
+	</tr>
+	<% @libraries.each do |library| %>
+		<tr>
+			<td><%= library.name %></td>
+			<td><%= library.books.count %></td>
+			<td><%= link_to "Edit", edit_library_path(library.id) %> | <%= link_to "Delete", library_path(library), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+		</tr>
+	<% end %>
+</table>
+</div>

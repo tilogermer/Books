@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<%= image_tag (@author.authorpath), class: "author-show" %>
+		</div>
+
+		<div class="col-md-8">
+			<div class="book-info">
+				
+				<h6><%= @author.fname %> <%= @author.lname %></h6>
+
+				<h6><%= @author.country.name %></h6>
+				<h6><%= @author.category.name %></h6>
+				<p class="book-description"><%= @author.description %></p>
+				
+				<div class="links btn-group">
+					<%= link_to "Back", authors_path, class: "btn btn-custom" %>
+
+					<%= link_to "Edit", edit_author_path, class: "btn btn-custom" %>
+					<%= link_to "Delete", author_path(@author), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<% @books.each do |book| %>
+		<div class="col-md-3">
+			
+			<a href="/books/<%= book.id %>">
+				<%= image_tag (book.coverpath), class: "book" %>
+				<h6><%= book.title %></h6>
+			</a>
+			
+		</div>
+		<% end %>
+
+	</div>
+
+
+
+
+
+</div>

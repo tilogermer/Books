@@ -1,0 +1,70 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-4">
+		<%= image_tag (@book.coverpath), class: "book-show" %>
+		
+	</div>
+
+	<div class="col-md-8">
+		<div class="book-info">
+			<h3 class="book-title"><%= @book.title %></h3>
+			
+			<h6><%= @book.author.fname %> <%= @book.author.lname %></h6>
+			
+			<h6 class="avg-rating">Average Rating</h6>
+		
+		    <div class="average-review-rating" data-score=<%= @average_review %>></div>
+		    <span class="number-of-reviews" >Based on <%= @book.reviews.count %> reviews</span>
+			
+			<h6><%= @book.library.name %></h6>
+			<h6><%= @book.category.name %></h6>
+			<h6><%= @book.medium.name %></h6>
+			<h6><%= @book.year %></h6>
+			<h6><%= @book.price %> EUR</h6>
+			<p>retour <%= @book.return_date %></p>
+			<p class="book-description"><%= @book.description %></p>
+			
+			<div class="links btn-group">
+				<%= link_to "Back", books_path, class: "btn btn-custom" %>
+
+				<%= link_to "Edit", edit_book_path, class: "btn btn-custom" %>
+				<%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="reviews">
+			<h1>Reviews</h1>
+		<%= render @book.reviews %>
+		<div>
+		<%= link_to "Add Review", new_book_review_path(@book), class: "btn-custom" %>
+	</div>
+	</div>
+	</div>
+</div>
+
+</div>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

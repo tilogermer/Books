@@ -1,0 +1,20 @@
+<div class="container">
+<h2>Media</h2>
+<a class="btn btn-primary btn-lg" href="/media/new" role="button">New</a>
+<br/>
+<table class="table table-striped">
+	<tr>
+		<th>Medium</th>
+		<th>Books</th>
+		<th>Actions</th>
+	</tr>
+	<% @media.each do |medium| %>
+		<tr>
+			<td><%= medium.name %></td>
+			<td><%= medium.books.count %></td>
+			<td><%= link_to "Edit", edit_medium_path(medium.id) %> | <%= link_to "Delete", medium_path(medium), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+		</tr>
+	<% end %>
+</table>
+</div>

@@ -1,0 +1,68 @@
+<%= form_for @book do |f| %>
+
+<div class="form-group">
+<%= f.label :title %>
+<%= f.text_field :title, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :coverpath %>
+<%= f.text_field :coverpath, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :library %>
+<%= f.select :library_id, Library.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :category %>
+<%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :author %>
+<%= f.select :author_id, Author.all.collect{|x| [x.fname + ' ' + x.lname, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :medium %>
+<%= f.select :medium_id, Medium.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :year %>
+<%= f.text_field :year, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :description %>
+<%= f.text_area :description, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :price %>
+<%= f.text_field :price, class: 'form-control' %>
+</div>
+<div class="form-group">
+<%= f.label :Favorite %>
+<%= f.check_box :isFavorite, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :New %>
+<%= f.check_box :isNew, class: 'form-control' %>
+</div>
+<div class="form-group">
+<%= f.label :Retour %>
+<%= f.check_box :isReturned, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+<%= f.label :return_date %>
+<%= f.date_field :return_date, class: 'form-control' %>
+</div>
+
+<%= f.submit 'Submit', class: 'btn btn-primary' %>
+<%= link_to 'Cancel', books_path, class: 'btn btn-default' %>
+<% end %>

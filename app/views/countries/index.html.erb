@@ -1,0 +1,21 @@
+<div class="container">
+<h2>Countries</h2>
+
+<a class="btn btn-primary btn-lg" href="/countries/new" role="button">New</a>
+
+<table class="table table-striped">
+	<tr>
+		<th>Country</th>
+		<th>Books</th>
+		<th>Actions</th>
+	</tr>
+	<% @countries.each do |country| %>
+		<tr>
+			<td><%= country.name %></td>
+			<td><%= country.authors.count %></td>
+			<td><%= link_to "Edit", edit_country_path(country.id) %> | <%= link_to "Delete", country_path(country), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+		</tr>
+	<% end %>
+</table>
+</div>

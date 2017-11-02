@@ -1,0 +1,46 @@
+<div class="container">
+	<h1>About Page</h1>
+	<div class="row">
+		<div class="col-md-4">
+			<h4>Categories </h4>
+			<%= pie_chart Category.group(:name).count %>
+		</div>
+		<div class="col-md-4">
+			<h4>Libraries </h4>
+			<%= pie_chart Library.group(:name).count, donut: true %>
+		</div>
+        <div class="col-md-4">
+        	<h4>Countries </h4>
+			<%= pie_chart Country.group(:name).count %>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h4>Books per category</h4>
+			<%= bar_chart Book.group(:category).count %>
+		</div>
+		<div class="col-md-4">
+			<h4>Books per library</h4>
+			<%= bar_chart Book.group(:library).count %>
+		</div>
+		<div class="col-md-4">
+			<h4>Authors per country</h4>
+			<%= bar_chart Author.group(:country).count %>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<%= line_chart @books.group(:created_at).sum(:price) %>
+		</div>
+		
+		<div class="col-md-4">
+			<%= bar_chart Book.group(:category).sum(:price) %>
+		</div>
+
+	</div>
+	
+	
+
+</div>

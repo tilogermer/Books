@@ -1,0 +1,24 @@
+<div class="container">
+<h2>Authors</h2>
+<a class="btn btn-primary btn-lg" href="/authors/new" role="button">New</a>
+
+<table class="table table-striped">
+	<tr>
+		<th>Author</th>
+		<th>Category</th>
+		<th>Country</th>
+		<th>Books</th>
+		<th>Actions</th>
+	</tr>
+	<% @authors.each do |author| %>
+		<tr>
+			<td><%= author.fname %> <%= author.lname %></td>
+			<td><%= author.category.name %></td>
+			<td><%= author.country.name %></td>
+			<td><%= author.books.count %></td>
+			<td> <%= link_to "Show", author_path(author.id) %> | <%= link_to "Edit", edit_author_path(author.id) %> | <%= link_to "Delete", author_path(author), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+		</tr>
+	<% end %>
+</table>
+</div>
