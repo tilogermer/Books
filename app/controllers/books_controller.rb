@@ -25,6 +25,10 @@ class BooksController < ApplicationController
     
   end
 
+  def new_books
+    @books = Book.where(:isNew => true).order("created_at ASC")
+  end
+
   def new
     @book = current_user.books.build
     @categories = Category.all.map{|c| [c.name, c.id]}

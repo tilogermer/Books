@@ -18,7 +18,9 @@
       <li class="nav-item <%= params[:controller] == 'books' ? 'active' : '' %>">
         <%= link_to 'Books', books_path, class: "nav-link" %>
       </li>
-      
+      <li class="nav-item <%= params[:controller] == 'books' ? 'active' : '' %>">
+        <%= link_to 'New', books_new_books_path, class: "nav-link" %>
+      </li>
     </ul>
 
      

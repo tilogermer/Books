@@ -1,0 +1,26 @@
+<h3>New Books</h3>
+<% if @books.count == 0 %>
+	<h4>There are currently no books in this category </h4>
+	<% else %>	
+
+	<div class="row">
+		<% @books.each do |book| %>
+		
+
+		<div class="col-md-3">
+			<div class="card-deck">
+				<div class="card">
+					<a href="/books/<%= book.id %>">
+						<%= image_tag (book.coverpath), class: "book img-fluid card-img-top" %>
+						<h6 class="card-text"><%= book.title %></h6>
+					</a>
+				</div>
+			</div>
+		</div>
+		<% end %>
+
+	</div>
+	<% end %>
+
+	<%= link_to "Add Book", new_book_path %>
+</div>
