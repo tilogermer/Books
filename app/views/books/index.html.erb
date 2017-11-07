@@ -1,5 +1,11 @@
 <div class="container">
-	<h3 class="current-category"><%= params[:category] %></h3>
+	<% if params[:library] %>
+	  <h3 class=""><%= params[:library] %> <small><%= @books.count %> books</small></h3>
+	<% elsif params[:category] %>
+	  <h3 class="current-category"><%= params[:category] %> <small> <%= @books.count %> books</small></h3>
+	<% else %>
+	  <h3><%= @books.count %> Books lent</h3>
+	<% end %>
 
 	<% if @books.count == 0 %>
 	<h4>There are currently no books in this category </h4>
