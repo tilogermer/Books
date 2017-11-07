@@ -1,4 +1,8 @@
 <div class="container">
+<h3 class="current-category"><%= params[:category] %></h3>
+<% if @books.count == 0 %>
+<h4>There are currently no books in this category </h4>
+<% else %>	
 <div class="row">
    <% @books.each do |book| %>
      <div class="col-md-3">
@@ -12,6 +16,8 @@
      <% end %>
 
 </div>
+<% end %>
+
 <%= link_to "Add Book", new_book_path %>
 </div>
 
