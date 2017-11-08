@@ -31,7 +31,13 @@ a{
 a:hover{
 	text-decoration: none;
 }
-
+.list-inline-item{
+	border-right: 1px solid black;
+	padding-right: 10px;
+}
+.list-inline-item:last-child{
+	border: none;
+}
 .book{
     height: auto;
 	max-width: 100%;

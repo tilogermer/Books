@@ -15,12 +15,13 @@
 		
 		    <div class="average-review-rating" data-score=<%= @average_review %>></div>
 		    <span class="number-of-reviews" >Based on <%= @book.reviews.count %> reviews</span>
+			<ul class="list-inline">
+				<li class="list-inline-item">Lib: <%= @book.library.name %></li>
+				<li class="list-inline-item" >Genre: <%= @book.category.name %></li>
+				<li class="list-inline-item" >Year: <%= @book.year %></li>
+				<li class="list-inline-item" >Price: <%= @book.price %> EUR</li>
+			</ul>
 			
-			<h6><%= @book.library.name %></h6>
-			<h6><%= @book.category.name %></h6>
-			<h6><%= @book.medium.name %></h6>
-			<h6><%= @book.year %></h6>
-			<h6><%= @book.price %> EUR</h6>
 			<p>retour <%= @book.return_date %></p>
 			<p class="book-description"><%= @book.description %></p>
 			
