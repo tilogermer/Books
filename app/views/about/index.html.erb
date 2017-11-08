@@ -3,19 +3,19 @@
 	<h3>Classifications</h3>
 	<div class="row">
 		<div class="col-md-3">
-			<h4>Categories </h4>
+			<h4></h4>
 			<%= pie_chart Category.group(:name).count %>
 		</div>
 		<div class="col-md-3">
-			<h4>Libraries </h4>
+			<h4> </h4>
 			<%= pie_chart Library.group(:name).count, donut: true %>
 		</div>
         <div class="col-md-3">
-        	<h4>Countries </h4>
+        	<h4> </h4>
 			<%= pie_chart Country.group(:name).count %>
 		</div>
 		<div class="col-md-3">
-        	<h4>Media </h4>
+        	<h4></h4>
 			<%= pie_chart Medium.group(:name).count %>
 		</div>
 	</div>

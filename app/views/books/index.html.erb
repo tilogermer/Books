@@ -1,10 +1,10 @@
 <div class="container">
 	<% if params[:library] %>
-	  <h3 class=""><%= params[:library] %> <small><%= @books.count %> books</small></h3>
+	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %> </span></h3>
 	<% elsif params[:category] %>
-	  <h3 class="current-category"><%= params[:category] %> <small> <%= @books.count %> books</small></h3>
+	  <h3 class="current-category"><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>
 	<% else %>
-	  <h3><%= @books.count %> Books lent</h3>
+	  <h3>Books lent <span class="badge badge-info"><%= @books.count %> </span></h3>
 	<% end %>
 
 	<% if @books.count == 0 %>
