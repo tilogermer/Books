@@ -20,11 +20,16 @@ class BooksController < ApplicationController
   end
    
   def booklist
-    @books = Book.all.order("title ASC")
+    @books = Book.where(:isReturned => false).order("return_date ASC")
     @categories = Category.all
     
   end
 
+  def booklist_all
+    @books = Book.all.order("title ASC")
+    @categories = Category.all
+  end
+  
   def new_books
     @books = Book.where(:isNew => true).order("created_at ASC")
   end
