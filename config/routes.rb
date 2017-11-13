@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'books/booklist' => 'books#booklist'
   get 'books/new_books' => 'books#new_books'
+  get 'statistics' => 'statistics#index'
   
   resources :books do
     resources :reviews

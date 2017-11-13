@@ -38,6 +38,26 @@ a:hover{
 .list-inline-item:last-child{
 	border: none;
 }
+footer{
+	background-color: blue;
+	height: 80px;
+}
+.bgimg{
+	height: 400px;
+	background-image: asset-url('library.jpg');
+	background-position: center center;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+
+header h1{
+	color: white;
+	text-align: center;
+	padding-top: 130px;
+
+}
+
 .book{
     height: auto;
 	max-width: 100%;
