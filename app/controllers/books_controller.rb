@@ -22,6 +22,7 @@ class BooksController < ApplicationController
   def booklist
     @books = Book.where(:isReturned => false).order("return_date ASC")
     @categories = Category.all
+    @readers = Reader.all
     
   end
 
@@ -40,6 +41,7 @@ class BooksController < ApplicationController
     @libraries = Library.all.map{|l| [l.name, l.id]}
     @media = Medium.all.map{|m| [m.name, m.id]}
     @authors = Author.all.map{|a| [a.lname, a.id]}
+    @readers = Reader.all.map{|r| [r.name, r.id]}
   end
 
   def create
@@ -56,6 +58,7 @@ class BooksController < ApplicationController
     @categories = Category.all
     @authors = Author.all
     @media = Medium.all
+    @readers = Reader.all
 
     if @book.reviews.blank?
     @average_review = 0
@@ -81,7 +84,7 @@ class BooksController < ApplicationController
 
   private
 def book_params
-  params.require(:book).permit(:title, :description, :author_id, :category_id, :medium_id, :book_img,
+  params.require(:book).permit(:title, :description, :author_id, :category_id, :medium_id, :reader_id, :book_img,
    :return_date, :library_id, :isReturned, :price, :year, :isFavorite, :isNew, :coverpath)
 end
 

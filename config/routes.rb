@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :media
   resources :authors
   resources :countries
+  resources :readers
   
   
   root 'about#index'

@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
 	belongs_to :category
+	belongs_to :reader
 	belongs_to :author
 	belongs_to :medium
 	belongs_to :library

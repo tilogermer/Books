@@ -1,0 +1,20 @@
+<div class="container">
+<h2 class="inline-form">Readers <span class="badge badge-info"><%= @readers.count %></span></h2>
+
+<a class="btn btn-primary btn-lg inline-form float-right" href="/readers/new" role="button">New</a>
+<br/>
+<table class="table table-striped">
+	<tr>
+		<th>Reader</th>
+		<th>Books</th>
+		<th>Actions</th>
+	</tr>
+	<% @readers.each do |reader| %>
+		<tr>
+			<td><%= reader.name %></td>
+			<td><%= reader.books.count %></td>
+			<td> <%= link_to "Edit", edit_reader_path(reader.id) %> | <%= link_to "Delete", reader_path(reader), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+		</tr>
+	<% end %>
+</table>
