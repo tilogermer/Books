@@ -12,6 +12,7 @@
 		</div>
 		<div class="col-md-4">
 			<%= image_tag ('reader.jpg'), class: 'img-fluid' %>
+			<p><%= @readers.count %> readers</p>
 		</div>
 		<div class="col-md-4">
 			<%= image_tag ('library2.jpg'), class: 'img-fluid' %>
@@ -19,72 +20,5 @@
 		</div>
 	</div>
 	
-	<h2>Diagrams with Highcharts</h2>
-	<h3>Classifications</h3>
-	<div class="row">
-		<div class="col-md-3">
-			<h4></h4>
-			<%= pie_chart Category.group(:name).count %>
-		</div>
-		<div class="col-md-3">
-			<h4> </h4>
-			<%= pie_chart Library.group(:name).count, donut: true %>
-		</div>
-        <div class="col-md-3">
-        	<h4> </h4>
-			<%= pie_chart Country.group(:name).count %>
-		</div>
-		<div class="col-md-3">
-        	<h4></h4>
-			<%= pie_chart Medium.group(:name).count %>
-		</div>
-	</div>
-	<br>
-	<h3>Statistics in barcharts</h3>
-	<div class="row">
-		<div class="col-md-4">
-			<h4>Books per category</h4>
-			<%= bar_chart Book.group(:category).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Books per library</h4>
-			<%= bar_chart Book.group(:library).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Authors per country</h4>
-			<%= bar_chart Author.group(:country).count %>
-		</div>
-		
-	</div>
-	<br>
-	<h3>Statistics in piecharts</h3>
-	<div class="row">
-				
-		<div class="col-md-4">
-			<h4>Books per category</h4>
-			<%= pie_chart Book.group(:category).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Books per library</h4>
-			<%= pie_chart Book.group(:library).count, donut: true %>
-		</div>
-		<div class="col-md-4">
-			<h4>Authors per country</h4>
-			<%= pie_chart Author.group(:country).count %>
-		</div>
-		
-	</div>
 	
-	<div class="row">
-		<div class="col-md-4">
-			<h4>Books per medium</h4>
-			<%= pie_chart Book.group(:medium).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Sum per medium</h4>
-			<%= column_chart Book.group(:medium).sum(:price) %>
-		</div>
-	</div>
-	
-
 </div>
