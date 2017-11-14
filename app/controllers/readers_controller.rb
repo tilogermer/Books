@@ -42,7 +42,7 @@ class ReadersController < ApplicationController
   private
 
   def reader_params
-    params.require(:reader).permit(:name)
+    params.require(:reader).permit(:name, :readerpath)
   end
 
   def find_reader

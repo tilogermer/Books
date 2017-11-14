@@ -22,7 +22,7 @@
 						<%= image_tag (book.coverpath), class: "book img-fluid card-img-top" %>
 					
 						<p class="card-text text-center"><%= book.title %></p>
-					
+						<p class="card-text text-center"><%= book.reader %></p>
 					</a>
 				<div class="card-footer">
       <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
