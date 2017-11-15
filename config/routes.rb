@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'technologies/index'
+
   devise_for :users
     
   get 'about/index'
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   get 'books/booklist' => 'books#booklist'
   get 'books/new_books' => 'books#new_books'
   get 'statistics' => 'statistics#index'
-  
+  get 'technologies' => 'technologies#index'
   resources :books do
     resources :reviews
   end
