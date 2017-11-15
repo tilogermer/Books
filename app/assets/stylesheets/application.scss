@@ -55,16 +55,24 @@ footer{
 
 
 header h1{
-	color: white;
-	text-align: center;
-	padding-top: 130px;
+	
+	padding-top: 12%;
 
 }
-header h2{
-	color: white;
-	text-align: center;
-	
+.badge-purple{
+	background-color: $purple;
+	opacity: 0.8;
+}
 
+.favorite{
+	position: relative;
+}
+.avatar{
+	position: absolute;
+	top: -15px;
+	left: 35%;
+	border: 5px solid $white;
+	border-radius: 30%;
 }
 .section-title-home{
 	text-align: center;
@@ -85,6 +93,7 @@ header h2{
 	padding-left: 30px;
 	padding-right: 30px;
 }
+
 .book{
     height: auto;
 	max-width: 100%;

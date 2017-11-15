@@ -2,10 +2,14 @@
 	<header>
 		<div class="bgimg">
 
-			<h1>World of Books</h1>
-			<h2 class="text-center">Books <span class="badge badge-info"><%= @books.count %></span></h2>
+			<h1 class="text-center text-white">World of Books</h1>
+			<h2 class="text-center text-white">Books <span class="badge badge-info"><%= @books.count %></span></h2>
 			
-			<h3 class="text-center text-white">return <span class="badge badge-danger"><%= @books3 %></span></h3>
+			<h3 class="text-center text-white"> <span class="badge badge-purple"><%= @books3 %></span></h3>
+			
+			<h5 class="text-center text-white">KLM <span class="badge badge-info"><%= @books4.count %></span> <span class="badge badge-purple"><%= @books5 %></span></h5>
+			<h5 class="text-center text-white">POT <span class="badge badge-info"><%= @books2.count %></span> <span class="badge badge-purple"><%= @books6 %></span></h5>
+
 		</div>
 	</header>
 	<br>
@@ -15,21 +19,26 @@
 			Our Favorites
 		</div>
 	</h2>	
-		
+
 	<div class="row">
+		
 		<% @books1.each do |book| %>
 		
-
+		
 		<div class="col-md-3">
 			<div class="card-deck">
-				<div class="card">
+				<div class="card favorite">
 					<a href="/books/<%= book.id %>">
 						<%= image_tag (book.coverpath), class: "book img-fluid card-img-top" %>
-					
-						<p class="card-text text-center"><%= book.title %></p>
-						<p class="card-text text-center"><%= book.reader %></p>
+
+						<div class="card-img-overlay">
+						<%= image_tag (book.reader.readerpath), class: "avatar image-circle" %>
+						
+						</div>
 						
 					</a>
+									
+
 				<div class="card-footer">
       <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
     </div>
@@ -37,5 +46,31 @@
 			</div>
 		</div>
 		<% end %>
+		
+	</div>
+
+
+	<div class="row">
+		<% @readers.each do |reader| %>
+		
+
+		<div class="col-md-2">
+			<div class="card-deck">
+				<div class="card favorite">
+					<a href="/readers/<%= reader.id %>">
+						<%= image_tag (reader.readerpath), class: "book img-fluid card-img-top" %>
+
+						<p><%= reader.books.where(:isReturned => false).count %></p>
+						
+					</a>
+				<div class="card-footer">
+      <small class="text-muted"><%= time_ago_in_words(reader.created_at) %> ago</small>
+    </div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+
+	</div>
 
 </div>
