@@ -21,10 +21,10 @@
 	</h2>	
 
 	<div class="row">
-		
+		<% @readers.each do |reader| %>
 		<% @books1.each do |book| %>
 		
-		
+		<% if reader.id === book.reader_id && book.isFavorite === true %>
 		<div class="col-md-3">
 			<div class="card-deck">
 				<div class="card favorite">
@@ -37,7 +37,7 @@
 						</div>
 						
 					</a>
-									
+				<span class="badge badge-purple" > <%= reader.books.where(:isReturned => false).count %> books</span>					
 
 				<div class="card-footer">
       <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
@@ -46,11 +46,14 @@
 			</div>
 		</div>
 		<% end %>
-		
+		<% end %>
+		<% end %>
+
 	</div>
 
 
 	<div class="row">
+
 		<% @readers.each do |reader| %>
 		
 

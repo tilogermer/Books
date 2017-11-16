@@ -2,10 +2,12 @@ class AuthorsController < ApplicationController
   before_action :find_author, only: [:show, :edit, :update, :destroy]
   
   def index
+    @page_title = 'Authors'
     @authors = Author.all.order("lname ASC")
   end
 
   def new
+    @page_title = 'Add author'
     @author = Author.new
     @category = Category.new
     @country = Country.new

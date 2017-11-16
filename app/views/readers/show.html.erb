@@ -1,2 +1,56 @@
-<h1>Readers#show</h1>
-<p>Find me in app/views/readers/show.html.erb</p>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<%= image_tag (@reader.readerpath), class: "author-show" %>
+		</div>
+
+		<div class="col-md-8">
+			<div class="book-info">
+				
+				<h6><%= @reader.name %></h6>
+
+				
+				<p class="book-description">Test</p>
+				
+				<div class="links btn-group">
+					<%= link_to "Back", readers_path, class: "btn btn-custom" %>
+
+					<%= link_to "Edit", edit_reader_path, class: "btn btn-custom" %>
+					<%= link_to "Delete", reader_path(@reader), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<% @books.each do |book| %>
+		
+
+		<div class="col-md-3">
+			<div class="card-deck">
+				<div class="card">
+					<a href="/books/<%= book.id %>">
+						<%= image_tag (book.coverpath), class: "book img-fluid card-img-top" %>
+					
+						<p class="card-text text-center"><%= book.title %></p>
+						
+						
+					</a>
+				<div class="card-footer">
+      <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
+    </div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+
+	</div>
+
+
+
+
+
+</div>
+

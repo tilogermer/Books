@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   
   def index
-
+    @page_title = 'Overlook'
 
   if params[:category].blank? && params[:library].blank?
     @books = Book.where(:isReturned => false).order("return_date ASC")
@@ -36,6 +36,7 @@ class BooksController < ApplicationController
   end
 
   def new
+    @page_title = 'Add book'
     @book = current_user.books.build
     @categories = Category.all.map{|c| [c.name, c.id]}
     @libraries = Library.all.map{|l| [l.name, l.id]}

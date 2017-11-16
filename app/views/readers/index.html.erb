@@ -15,7 +15,8 @@
 			<td><%= reader.name %></td>
 			<td><%= image_tag (reader.readerpath) %></td>
 			<td><%= reader.books.count %></td>
-			<td> <%= link_to "Edit", edit_reader_path(reader.id) %> | <%= link_to "Delete", reader_path(reader), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+			<td> <%= link_to "Show", reader_path(reader.id) %> |<%= link_to "Edit", edit_reader_path(reader.id) %> | <%= link_to "Delete", reader_path(reader), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
 	<% end %>

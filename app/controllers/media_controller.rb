@@ -2,10 +2,12 @@ class MediaController < ApplicationController
   before_action :find_medium, only: [:show, :edit, :update, :destroy]
   
   def index
+    @page_title = 'Media'
     @media = Medium.all.order("name ASC")
   end
 
   def new
+    @page_title = 'Add medium'
     @medium = Medium.new
   end
 

@@ -2,10 +2,12 @@ class ReadersController < ApplicationController
   before_action :find_reader, only: [:show, :edit, :update, :destroy]
 
   def index
+    @page_title = 'Readers'
     @readers = Reader.all.order("name ASC")
   end
 
   def new
+    @page_title = 'Add reader'
     @reader = Reader.new
   end
 

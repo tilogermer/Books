@@ -2,10 +2,12 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
 
   def index
+    @page_title = 'Categories'
     @categories = Category.all.order("name ASC")
   end
 
   def new
+    @page_title = 'Add category'
     @category = Category.new
   end
 

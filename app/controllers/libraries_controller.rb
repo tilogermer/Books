@@ -2,10 +2,12 @@ class LibrariesController < ApplicationController
   before_action :find_library, only: [:show, :edit, :update, :destroy]
   
   def index
+    @page_title = 'Libraries'
     @libraries = Library.all.order("name ASC")
   end
 
   def new
+    @page_title = 'Add library'
     @library = Library.new
   end
 

@@ -2,10 +2,12 @@ class CountriesController < ApplicationController
   before_action :find_country, only: [:show, :edit, :update, :destroy]
 
   def index
+    @page_title = 'Countries'
     @countries = Country.all.order("name ASC")
   end
 
   def new
+    @page_title = 'Add country'
     @country = Country.new
   end
 

@@ -16,7 +16,7 @@ class AboutController < ApplicationController
 		@category = Category.new
 		@libraries = Library.all
 		@readers = Reader.all
-		
+		@reviews = Review.all
 		
 		
 	end
