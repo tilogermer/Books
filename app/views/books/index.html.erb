@@ -1,4 +1,4 @@
-<div class="container">
+
 	<% if params[:library] %>
 	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %> </span> <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span></h3>
 
@@ -39,6 +39,6 @@
 	<% end %>
 
 	<%= link_to "Add Book", new_book_path %>
-</div>
+
 
 

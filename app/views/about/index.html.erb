@@ -1,4 +1,4 @@
-<div class="container">
+
 	<header>
 		<div class="bgimg">
 
@@ -7,8 +7,7 @@
 			
 			<h3 class="text-center text-white"> <span class="badge badge-purple"><%= @books3 %></span></h3>
 			
-			<h5 class="text-center text-white">KLM <span class="badge badge-info"><%= @books4.count %></span> <span class="badge badge-purple"><%= @books5 %></span></h5>
-			<h5 class="text-center text-white">POT <span class="badge badge-info"><%= @books2.count %></span> <span class="badge badge-purple"><%= @books6 %></span></h5>
+			
 
 		</div>
 	</header>
@@ -37,6 +36,7 @@
 						</div>
 						
 					</a>
+					<div class="average-review-rating" data-score=<%= @average_review %>></div>
 				<span class="badge badge-purple" > <%= reader.books.where(:isReturned => false).count %> books</span>					
 
 				<div class="card-footer">
@@ -52,28 +52,24 @@
 	</div>
 
 
-	<div class="row">
+	
 
-		<% @readers.each do |reader| %>
-		
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
 
-		<div class="col-md-2">
-			<div class="card-deck">
-				<div class="card favorite">
-					<a href="/readers/<%= reader.id %>">
-						<%= image_tag (reader.readerpath), class: "book img-fluid card-img-top" %>
-
-						<p><%= reader.books.where(:isReturned => false).count %></p>
-						
-					</a>
-				<div class="card-footer">
-      <small class="text-muted"><%= time_ago_in_words(reader.created_at) %> ago</small>
-    </div>
-				</div>
-			</div>
-		</div>
-		<% end %>
-
-	</div>
-
-</div>
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
