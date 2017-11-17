@@ -1,13 +1,15 @@
-
+<div class="stretcher">
 <h2 class="inline-form">Readers <span class="badge badge-info"><%= @readers.count %></span></h2>
 
 <a class="btn btn-primary btn-lg inline-form float-right" href="/readers/new" role="button">New</a>
 <br/>
+
 <table class="table table-striped">
 	<tr>
 		<th>Reader</th>
 		<th>Image</th>
 		<th>Books</th>
+		<th>Favorites</th>
 		<th>Actions</th>
 	</tr>
 	<% @readers.each do |reader| %>
@@ -15,9 +17,11 @@
 			<td><%= reader.name %></td>
 			<td><%= image_tag (reader.readerpath) %></td>
 			<td><%= reader.books.count %></td>
-
+			<td><%= reader.books.where(:isFavorite => true).count %></td>
 			<td> <%= link_to "Show", reader_path(reader.id) %> |<%= link_to "Edit", edit_reader_path(reader.id) %> | <%= link_to "Delete", reader_path(reader), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
 	<% end %>
 </table>
+
+</div>

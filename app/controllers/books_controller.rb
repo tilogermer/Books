@@ -60,6 +60,7 @@ class BooksController < ApplicationController
     @authors = Author.all
     @media = Medium.all
     @readers = Reader.all
+    @days = @book.return_date - @book.date_start
 
     if @book.reviews.blank?
     @average_review = 0
@@ -67,6 +68,11 @@ class BooksController < ApplicationController
     @average_review = @book.reviews.average(:rating).round(2)
   end
     
+  end
+
+  def days
+    Book.return_date - Book.date_start
+    @balance = Book.days
   end
 
   def edit

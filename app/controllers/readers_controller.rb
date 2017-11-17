@@ -27,6 +27,7 @@ class ReadersController < ApplicationController
   def show
     @readers = Reader.all
     @books = @reader.books
+    
   end
 
   def update

@@ -23,7 +23,8 @@
 				<li class="list-inline-item" >Price: <%= @book.price %> EUR</li>
 			</ul>
 			
-			<p>retour <%= @book.return_date %></p>
+			<p>retour <%= @book.return_date %> days <%= @balance %></p>
+			
 			<p class="book-description"><%= @book.description %></p>
 			
 			<div class="links btn-group">
