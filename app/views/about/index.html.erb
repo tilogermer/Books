@@ -5,7 +5,7 @@
 			<h1 class="text-center text-white">World of Books</h1>
 			<h2 class="text-center text-white">Books <span class="badge badge-info"><%= @books.count %></span></h2>
 			
-			<h3 class="text-center text-white"> <span class="badge badge-purple"><%= @books3 %></span></h3>
+			<h3 class="text-center text-white"> <span class="badge-purple"><%= @books3 %></span></h3>
 			
 			
 
@@ -13,7 +13,7 @@
 	</header>
 	<br>
 	
-	<h2 class="section-title-home">
+		<h2 class="section-title-home">
 		<div class="section-title-home-content">
 			Our Favorites
 		</div>
@@ -23,7 +23,7 @@
 		<% @readers.each do |reader| %>
 		<% @books1.each do |book| %>
 		
-		<% if reader.id === book.reader_id && book.isFavorite === true %>
+		<% if reader.id === book.reader_id && book.isFavorite  %>
 		<div class="col-md-3">
 			<div class="card-deck">
 				<div class="card favorite">
@@ -37,7 +37,7 @@
 						
 					</a>
 					<div class="average-review-rating" data-score=<%= @average_review %>></div>
-				<span class="badge badge-purple" ><%= reader.name %> <%= reader.books.where(:isReturned => false).count %> books</span>					
+				<span class="badge badge-purple" style="border-radius: 0;" ><%= reader.name %> <%= reader.books.where(:isReturned => false).count %> books</span>					
 
 				<div class="card-footer">
       <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
@@ -52,7 +52,6 @@
 	</div>
 
 
-	
 
 <script>
 	$('.review-rating').raty({
