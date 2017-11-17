@@ -58,6 +58,7 @@ class BooksController < ApplicationController
   def show
     @categories = Category.all
     @authors = Author.all
+    @author = @book.author
     @media = Medium.all
     @readers = Reader.all
     @days = @book.return_date - @book.date_start
@@ -70,10 +71,7 @@ class BooksController < ApplicationController
     
   end
 
-  def days
-    Book.return_date - Book.date_start
-    @balance = Book.days
-  end
+  
 
   def edit
   end

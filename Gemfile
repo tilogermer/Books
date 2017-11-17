@@ -38,6 +38,7 @@ gem "paperclip", "~> 5.0.0"
 gem "chartkick"
 gem 'groupdate'
 gem 'devise'
+gem 'time_difference'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
