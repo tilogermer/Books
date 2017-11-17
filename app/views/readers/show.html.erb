@@ -1,8 +1,7 @@
 
-Start <%= @books1 %>
 	<div class="row">
 		<div class="col-md-4">
-			<%= image_tag (@reader.readerpath), class: "author-show" %>
+			<%= image_tag (@reader.readerpath), class: "img-fluid" %>
 		</div>
 
 		<div class="col-md-8">
@@ -11,7 +10,7 @@ Start <%= @books1 %>
 				<h6><%= @reader.name %></h6>
 
 				
-				<p class="book-description">Test</p>
+				<p class="book-description"><%= @reader.description %></p>
 				
 				<div class="links btn-group">
 					<%= link_to "Back", readers_path, class: "btn btn-custom" %>
@@ -47,6 +46,7 @@ Start <%= @books1 %>
 		<% end %>
 
 	</div>
+
 
 
 

@@ -16,8 +16,14 @@
 
 @import "bootstrap";
 
+.mini{
+	width: 60px;
+	height: 60px;
+}
 .col-md-3{
 	display: flex;
+	margin: 0;
+
 
 }
 .card{
@@ -32,7 +38,7 @@ a:hover{
 	text-decoration: none;
 }
 .list-inline-item{
-	border-right: 1px solid black;
+	border-right: 3px solid white;
 	padding-right: 10px;
 }
 .list-inline-item:last-child{
@@ -74,10 +80,12 @@ header h1{
 }
 .avatar{
 	position: absolute;
-	top: -15px;
+	top: -20px;
 	left: 35%;
 	border: 5px solid $white;
 	border-radius: 30%;
+	height: 80px;
+	width: 80px;
 }
 .section-title-home{
 	text-align: center;

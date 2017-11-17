@@ -15,7 +15,7 @@
 	<% @readers.each do |reader| %>
 		<tr>
 			<td><%= reader.name %></td>
-			<td><%= image_tag (reader.readerpath) %></td>
+			<td><%= image_tag (reader.readerpath), class: 'mini' %></td>
 			<td><%= reader.books.count %></td>
 			<td><%= reader.books.where(:isFavorite => true).count %></td>
 			<td> <%= link_to "Show", reader_path(reader.id) %> |<%= link_to "Edit", edit_reader_path(reader.id) %> | <%= link_to "Delete", reader_path(reader), method: :delete, data: {confirm: 'Are you sure'} %> </td>
