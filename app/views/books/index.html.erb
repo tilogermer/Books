@@ -1,13 +1,29 @@
 
 	<% if params[:library] %>
-	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %>
-		</span> <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span></h3>
+	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %></span>
+		
+		<% if TimeDifference.between( Date.today, @books.where(:isReturned => false).minimum(:return_date) ).in_days <= 3 %>
+
+	  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
+	  <% else %>
+	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
+		<% end %>
+	</h3>
 
 	<% elsif params[:category] %>
 	  <h3 class="current-category"><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>
 
 	<% else %>
-	  <h3>Books lent <span class="badge badge-info"><%= @books.count %> </span></h3>
+
+	  <h3>Books lent <span class="badge badge-info"><%= @books.count %> </span>
+		<% if TimeDifference.between( Date.today, @books.where(:isReturned => false).minimum(:return_date) ).in_days <= 3 %>
+
+	  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
+	  <% else %>
+	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
+		<% end %>
+
+	  </h3>
 	<% end %>
 
 	<% if @books.count == 0 %>
