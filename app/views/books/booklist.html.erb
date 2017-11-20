@@ -15,7 +15,12 @@
 			<td><%= book.title %></td>
 			<td><%= book.medium.name %></td>
 			<td><%= book.library.name %></td>
-			<td><%= book.return_date %></td>
+			<% if TimeDifference.between( Date.today, book.return_date).in_days <= 3 %>
+			<td class="text-danger"><%= book.return_date %></td>
+				<% else %>
+			<td class="text-dark"><%= book.return_date %></td>
+				<% end %>
+				
 			
 			<td> <%= link_to "Show", book_path(book.id) %> | <%= link_to "Edit", edit_book_path(book.id) %> | <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
