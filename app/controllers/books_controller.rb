@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   
   def index
     @page_title = 'Overlook'
+    @return_date_min = Book.where(:isReturned => false).minimum(:return_date)
 
   if params[:category].blank? && params[:library].blank?
     @books = Book.where(:isReturned => false).order("return_date ASC")

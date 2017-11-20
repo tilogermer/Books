@@ -1,6 +1,7 @@
 
 	<% if params[:library] %>
-	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %> </span> <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span></h3>
+	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %>
+		</span> <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span></h3>
 
 	<% elsif params[:category] %>
 	  <h3 class="current-category"><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>

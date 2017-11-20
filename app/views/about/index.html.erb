@@ -5,14 +5,17 @@
 			<h1 class="text-center text-white">World of Books</h1>
 			<h2 class="text-center text-white">Books <span class="badge badge-info"><%= @books.count %></span></h2>
 			
-			<h3 class="text-center text-white"> <span class="badge-purple"><%= @books3 %></span></h3>
 			
-			
+			<% if TimeDifference.between( Date.today, @return_date_min).in_days <= 3 %>
+			<h3 class="text-center text-white"> <span class="badge-danger"><%= @return_date_min %></span></h3>
+			<% else %>
+			<h3 class="text-center text-white"> <span class="badge-purple"><%= @return_date_min %></span>
+			<% end %>
 
 		</div>
 	</header>
 	<br>
-	
+		<%= @start_time %>
 		<h2 class="section-title-home">
 		<div class="section-title-home-content">
 			Our Favorites
