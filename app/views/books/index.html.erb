@@ -13,6 +13,9 @@
 	<% elsif params[:category] %>
 	  <h3 class="current-category"><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>
 
+	 <% elsif params[:tag] %>
+	  <h3 class="current-category"><%= params[:tag] %> <span class="badge badge-info"> <%= @books.count %> </span></h3> 
+
 	<% else %>
 
 	  <h3>Books lent <span class="badge badge-info"><%= @books.count %> </span>
@@ -34,14 +37,14 @@
 		<% @books.each do |book| %>
 		
 
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="card-deck">
 				<div class="card">
 					<a href="/books/<%= book.id %>">
 						<%= image_tag (book.coverpath), class: "img-fluid card-img-top" %>
 					
 						<p class="card-text text-center"><%= book.title %></p>
-						<p class="card-text text-center"><%= book.reader %></p>
+						<p class="badge-info text-center"><%= book.tag %></p>
 						
 					</a>
 				<div class="card-footer">

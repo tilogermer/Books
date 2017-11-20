@@ -57,12 +57,28 @@
       
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Tags
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <% Tag.all.each do |tag| %>
+            <li class="<%='active' if params[:tag] == tag.name %>">
+              <%= link_to tag.name, books_path(tag: tag.name), class: "dropdown-item" %>
+            </li>
+            <% end %>
+          </ul>
+        </li>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to "Books", books_booklist_path,class: "dropdown-item" %>
           <%= link_to "Authors", authors_path, class: "dropdown-item" %>
           <%= link_to "Categories", categories_path,class: "dropdown-item" %>
+           <%= link_to "Tags", tags_path,class: "dropdown-item" %>
           <%= link_to "Countries", countries_path, class: "dropdown-item" %>
           <%= link_to "Readers", readers_path, class: "dropdown-item" %>
           <%= link_to "Libraries", libraries_path, class: "dropdown-item" %> 

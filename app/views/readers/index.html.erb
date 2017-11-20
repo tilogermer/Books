@@ -5,13 +5,16 @@
 <br/>
 
 <table class="table table-striped">
+	<thead class="table-dark text-light">
 	<tr>
+
 		<th>Reader</th>
 		<th>Image</th>
 		<th>Books</th>
 		<th>Favorites</th>
 		<th>Actions</th>
 	</tr>
+	<thead>
 	<% @readers.each do |reader| %>
 		<tr>
 			<td><%= reader.name %></td>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'technologies/index'
+ 
 
   devise_for :users
     
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :countries
   resources :readers
+  resources :tags
   
   
   root 'about#index'

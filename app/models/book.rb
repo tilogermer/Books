@@ -6,6 +6,9 @@ class Book < ApplicationRecord
 	belongs_to :library
 	belongs_to :user
 	has_many :reviews
+	belongs_to :tag
+
+	
 
 	def to_s
 		title

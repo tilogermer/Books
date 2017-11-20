@@ -6,13 +6,17 @@ class BooksController < ApplicationController
     @page_title = 'Overlook'
     @return_date_min = Book.where(:isReturned => false).minimum(:return_date)
 
-  if params[:category].blank? && params[:library].blank?
+  if params[:category].blank? && params[:library].blank? && params[:tag].blank?
     @books = Book.where(:isReturned => false).order("return_date ASC")
     
-    elsif params[:library].blank?
+    elsif params[:library].blank? && params[:tag].blank?
       @category_id = Category.find_by(name: params[:category]).id
       @books = Book.where(:category_id => @category_id).order("return_date ASC")
     
+    elsif params[:library].blank? && params[:category].blank?
+      @tag_id = Tag.find_by(name: params[:tag]).id
+      @books = Book.where(:tag_id => @tag_id).order("return_date ASC")
+
     else
       @library_id = Library.find_by(name: params[:library]).id
       @books = Book.where(:library_id => @library_id, :isReturned => false).order("return_date ASC")
@@ -62,6 +66,7 @@ class BooksController < ApplicationController
     @author = @book.author
     @media = Medium.all
     @readers = Reader.all
+    @tags = Tag.all
     @days = @book.return_date - @book.date_start
 
     if @book.reviews.blank?
@@ -90,7 +95,7 @@ class BooksController < ApplicationController
 
   private
 def book_params
-  params.require(:book).permit(:title, :description, :author_id, :category_id, :medium_id, :reader_id, :book_img,
+  params.require(:book).permit(:title, :description, :author_id, :category_id, :tag_id, :medium_id, :reader_id, :book_img,
    :date_start, :return_date, :library_id, :isReturned, :price, :year, :isFavorite, :isNew, :coverpath)
 end
 

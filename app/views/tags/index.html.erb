@@ -1,0 +1,22 @@
+<div class="stretcher">
+<h2 class="inline-form">Tags <span class="badge badge-info"><%= @tags.count %></span></h2>
+
+<a class="btn btn-primary btn-lg inline-form float-right" href="/tags/new" role="button">New</a>
+<br/>
+<table class="table table-striped">
+	<tr>
+		<th>Tag</th>
+		<th>Books</th>
+		<th>Actions</th>
+	</tr>
+	<% @tags.each do |tag| %>
+		<tr>
+			<td><%= tag.name %></td>
+			<td><%= tag.books.count %></td>
+			<td> <%= link_to "Edit", edit_tag_path(tag.id) %> | <%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+
+		</tr>
+	<% end %>
+</table>
+
+</div>
