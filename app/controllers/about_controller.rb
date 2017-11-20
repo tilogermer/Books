@@ -5,7 +5,8 @@ class AboutController < ApplicationController
 		
 		@return_date_min = Book.where(:isReturned => false).minimum(:return_date)
 
-		@books1 = Book.where(:isFavorite => true)
+		@books1 = Book.where(:isFavorite => true).order("return_date DESC").group(:reader_id)
+
 		@books2 = Book.where(:isReturned => false, :library_id =>2)
 		@books4 = Book.where(:isReturned => false, :library_id =>1)
 		@books6 = Book.where(:isReturned => false, :library_id =>2).minimum(:return_date)
