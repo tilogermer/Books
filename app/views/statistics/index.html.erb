@@ -1,57 +1,62 @@
 
-	<h2>Diagrams with Highcharts</h2>
-	
-	<div class="row">
-				
-		<div class="col-md-4">
-			<h4>Books per category</h4>
-			<%= pie_chart Book.group(:category).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Books per library</h4>
-			<%= pie_chart Book.group(:library).count, donut: true %>
-		</div>
-		<div class="col-md-4">
-			<h4>Authors per country</h4>
-			<%= pie_chart Author.group(:country).count %>
-		</div>
-		
-	</div>
-	
-	
-	<div class="row">
-		<div class="col-md-4">
-			<h4>Books per category</h4>
-			<%= bar_chart Book.group(:category).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Books per library</h4>
-			<%= bar_chart Book.group(:library).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Authors per country</h4>
-			<%= bar_chart Author.group(:country).count %>
-		</div>
-		
-	</div>
-	<br>
-	
-	
-	
-	<div class="row">
-		<div class="col-md-4">
-			<h4>Books per medium</h4>
-			<%= pie_chart Book.group(:medium).count %>
-		</div>
-		<div class="col-md-4">
-			<h4>Sum per medium</h4>
-			<%= column_chart Book.group(:medium).sum(:price) %>
-		</div>
-		<div class="col-md-4">
-			<h4>Books per reader</h4>
-			<%= pie_chart Book.group(:reader).count %>
-		</div>
-	
-	
+<h2>Diagrams with Highcharts</h2>
 
+<div class="row">
+	<div class="col-md-4">
+		<h4>Books per category</h4>
+		<%= pie_chart Book.group(:category).count %>
+	</div>
+	<div class="col-md-4">
+		<h4>Books per library</h4>
+		<%= pie_chart Book.group(:library).count, donut: true %>
+	</div>
+	<div class="col-md-4">
+		<h4>Authors per country</h4>
+		<%= pie_chart Author.group(:country).count %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<h4>Books per category</h4>
+		<%= bar_chart Book.group(:category).count %>
+	</div>
+	<div class="col-md-4">
+		<h4>Books per library</h4>
+		<%= bar_chart Book.group(:library).count %>
+	</div>
+	<div class="col-md-4">
+		<h4>Authors per country</h4>
+		<%= bar_chart Author.group(:country).count %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<h4>Books per medium</h4>
+		<%= pie_chart Book.group(:medium).count %>
+	</div>
+	<div class="col-md-4">
+		<h4>Sum per medium</h4>
+		<%= column_chart Book.group(:medium).sum(:price) %>
+	</div>
+	<div class="col-md-4">
+		<h4>Books per reader</h4>
+		<%= pie_chart Book.group(:reader).count %>
+	</div>
+</div>	
+
+<div class="row">
+    <div class="col-md-4">
+		<h4>Books per week</h4>
+		<%= column_chart Book.group_by_week(:date_start).count %>
+	</div>
+	<div class="col-md-4">
+		<h4>Books per month</h4>
+		<%= column_chart Book.group_by_month(:date_start).count %>
+	</div>
+	<div class="col-md-4">
+		<h4>Books per year</h4>
+		<%= column_chart Book.group_by_year(:date_start).count %>
+	</div>
 </div>

@@ -23,13 +23,15 @@ ul.ohne{
 ul.ohne li.unten{
 	margin-bottom: 15px;
 }
-
+footer ul{
+	margin-bottom: 5px;
+}
 a.link-big{
 	border-bottom: 3px solid rgba(106,216,106,0.6);
 	box-shadow: inset 0 -8px 0 rgba(106,216,106,0.55);
 	transition: background .2s ease;
 	font-size: 22px;
-	height: 31px;
+	height: 29px;
 	display: inline-block;
 	line-height: 30.8px;
 	
@@ -38,6 +40,30 @@ a.link-big:hover{
 	text-decoration: none;
 	color: black;
 	background: rgba(106,216,106,0.55);
+}
+a.link-small{
+	border-bottom: 3px solid rgba(106,216,106,0.6);
+	box-shadow: inset 0 -3px 0 rgba(106,216,106,0.38);
+	transition: background .2s ease;
+	font-size: 16px;
+	height: 20px;
+	box-sizing: border-box;
+	font-weight: 100;
+	display: inline-block;
+	line-height: 22.4px;
+	
+}
+.purple{
+	color: #8000FF;
+}
+a.link-small:hover{
+	text-decoration: none;
+	color: black;
+	background: rgba(106,216,106,0.55);
+}
+
+.social-media li{
+	font-size: 20px;
 }
 .mini{
 	width: 60px;
@@ -170,4 +196,20 @@ header h1{
 }
 .col-md-3{
 	margin-bottom: 20px;
+}
+@media only print{
+	.printer{
+		display: none;
+		
+	}
+	.printer-font{
+		font-size: 14px;
+	}
+	.printer-font-color{
+		color: grey;
+	}
+	.navbar{
+		margin-bottom: 0;
+	}
+
 }

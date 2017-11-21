@@ -8,18 +8,22 @@ class BooksController < ApplicationController
 
   if params[:category].blank? && params[:library].blank? && params[:tag].blank?
     @books = Book.where(:isReturned => false).order("return_date ASC")
-    
+      @page_title = 'Overlook'
+
     elsif params[:library].blank? && params[:tag].blank?
       @category_id = Category.find_by(name: params[:category]).id
       @books = Book.where(:category_id => @category_id).order("return_date ASC")
-    
+      @page_title = 'Categories'
+
     elsif params[:library].blank? && params[:category].blank?
       @tag_id = Tag.find_by(name: params[:tag]).id
       @books = Book.where(:tag_id => @tag_id).order("return_date ASC")
+      @page_title = 'Tags'
 
     else
       @library_id = Library.find_by(name: params[:library]).id
       @books = Book.where(:library_id => @library_id, :isReturned => false).order("return_date ASC")
+      @page_title = 'Libraries'
     end
       
   end
@@ -28,7 +32,7 @@ class BooksController < ApplicationController
     @books = Book.where(:isReturned => false).order("return_date ASC")
     @categories = Category.all
     @readers = Reader.all
-    
+    @page_title = 'Book list'
   end
 
   def booklist_all
@@ -38,6 +42,7 @@ class BooksController < ApplicationController
   
   def new_books
     @books = Book.where(:isNew => true).order("created_at ASC")
+    @page_title = 'new'
   end
 
   def new

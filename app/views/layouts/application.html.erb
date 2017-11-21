@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= @page_title ? @page_title : 'Welcome' %> | Books</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%= @page_title ? @page_title : 'Welcome' %> | Books</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
-  <body>
+</head>
+
+<body>
   <div class="container">
   	<%= render 'layouts/navbar' %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+   <%= yield %>
 
-    <%= render 'layouts/footer' %>
-</div>
-  </body>
+   <%= render 'layouts/footer' %>
+ </div>
+</body>
 </html>

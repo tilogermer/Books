@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20171120114509) do
     t.integer "country_id"
     t.text "description"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at"
     t.string "authorpath"
   end
 
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20171120114509) do
     t.integer "user_id"
     t.integer "reader_id"
     t.date "date_start"
-    t.integer "tag_id", null: true
+    t.integer "tag_id", default: null
   end
 
   create_table "categories", force: :cascade do |t|
