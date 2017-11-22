@@ -44,8 +44,9 @@
 						<%= image_tag (book.coverpath), class: "img-fluid card-img-top" %>
 					
 						<p class="card-text text-center"><%= book.title %></p>
+						<% unless params[:tag] %>
 						<p class="badge-info text-center"><%= book.tag %></p>
-						
+						<% end %>
 					</a>
 				<div class="card-footer">
       <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>

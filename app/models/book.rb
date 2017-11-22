@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 	belongs_to :library
 	belongs_to :user
 	has_many :reviews
-	belongs_to :tag
+	belongs_to :tag, optional: true
 
 	
 
