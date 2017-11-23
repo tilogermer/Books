@@ -20,6 +20,9 @@
 			<i class="mdi mdi-auto-fix"></i> Content
 		</div>
 	</h2>
+
+	
+
 	<ul>
 	<li>Application for Administration of books and readers in several libraries</li>
 	<li>Selection of books by library, author, reader, category or tag</li>
@@ -45,12 +48,12 @@
 				<div class="card favorite">
 					<a href="/books/<%= book.id %>">
 						<%= image_tag (book.coverpath), class: " img-fluid card-img-top" %>
-
+						<a href="/readers/<%= reader.id %>">
 						<div class="card-img-overlay">
-						<%= image_tag (book.reader.readerpath), class: "avatar image-circle" %>
+						<%= image_tag (book.reader.readerpath), class: "avatar" %>
 						
 						</div>
-						
+						</a>
 					</a>
 					<div class="average-review-rating" data-score=<%= @average_review %>></div>
 				<span class="badge badge-purple" style="border-radius: 0;" ><%= reader.name %> <%= reader.books.where(:isReturned => false).count %> books</span>					

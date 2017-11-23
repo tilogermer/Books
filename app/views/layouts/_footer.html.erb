@@ -1,11 +1,11 @@
 
 <footer class="footer bg-light printer">
-	<p class="float-right" style="padding-right: 10px;"><a href="#">nach oben</a></p>
-	<ul class="list-inline" style="padding-left: 10px;">
-		<li class="list-inline-item"><%= image_tag('logos/rails.svg', width: '80') %></li>
-		<li class="list-inline-item"> <%= link_to 'Technology', technologies_path %></li>
-		<li class="list-inline-item"> <%= link_to 'Statistics', statistics_path %></li>
-		<li class="list-inline-item"> <%= link_to 'Sitemap', statistics_path %></li>
-	</ul>
-		
+	<p class="float-right" style="padding-right: 10px;"><a href="#" class="btn btn-sm btn-outline-secondary"><i class="mdi mdi-home"></i>home</a></p>
+	
+	<%= link_to "Technology", technologies_path, class: "btn btn-outline-secondary btn-sm" %>
+	
+	<%= link_to "Statistics", statistics_path, class: "btn btn-outline-secondary btn-sm" %>
+	
+	<%= link_to "Sitemap", statistics_path, class: "btn btn-outline-secondary btn-sm" %>
+
 </footer>

@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   
   def index
     @page_title = 'Overlook'
+    @tags = Tag.all
     @return_date_min = Book.where(:isReturned => false).minimum(:return_date)
 
   if params[:category].blank? && params[:library].blank? && params[:tag].blank?
@@ -48,11 +49,7 @@ class BooksController < ApplicationController
   def new
     @page_title = 'Add book'
     @book = current_user.books.build
-    @categories = Category.all.map{|c| [c.name, c.id]}
-    @libraries = Library.all.map{|l| [l.name, l.id]}
-    @media = Medium.all.map{|m| [m.name, m.id]}
-    @authors = Author.all.map{|a| [a.lname, a.id]}
-    @readers = Reader.all.map{|r| [r.name, r.id]}
+    
   end
 
   def create
@@ -66,14 +63,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @categories = Category.all
+    
     @authors = Author.all
     @author = @book.author
-    @media = Medium.all
-    @readers = Reader.all
-    @tags = Tag.all
-    @days = @book.return_date - @book.date_start
-
+    
     if @book.reviews.blank?
     @average_review = 0
   else

@@ -14,6 +14,11 @@
 	  <h3 class="current-category"><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>
 
 	 <% elsif params[:tag] %>
+	 <% @tags.each do |tag| %>
+	
+	 <span class="badge badge-purple"><%= tag.name %></span>
+	 <% end %> 
+	
 	  <h3 class="current-category"><%= params[:tag] %> <span class="badge badge-info"> <%= @books.count %> </span></h3> 
 
 	<% else %>
@@ -37,7 +42,7 @@
 		<% @books.each do |book| %>
 		
 
-		<div class="col-md-2">
+		<div class="col-lg-2 col-md-3 col-6">
 			<div class="card-deck">
 				<div class="card">
 					<a href="/books/<%= book.id %>">
@@ -59,7 +64,8 @@
 	</div>
 	<% end %>
 
-	<%= link_to "Add Book", new_book_path %>
+	
+	<%= link_to "Add Book", new_book_path, class: 'btn btn-outline-secondary btn-sm' %>
 
 
 
