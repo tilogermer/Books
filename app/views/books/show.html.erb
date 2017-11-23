@@ -10,7 +10,7 @@
 		
 			<h4 class="book-title"><%= @book.title %>
 			<% if @book.tag %>
-			 <span class="badge badge-info"> <%= @book.tag.name %></span></h4>
+			 <span class="badge badge-info"> <%= link_to @book.tag.name, books_path(tag: @tag.name) %></span></h4>
 			<% end %>
 			<% if @book.author.fname != "DVD" %>
 			<h6><%= link_to @book.author.fname + ' ' + @book.author.lname , author_path(@author.id) %></h6>	

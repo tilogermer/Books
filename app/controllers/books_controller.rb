@@ -66,6 +66,8 @@ class BooksController < ApplicationController
     
     @authors = Author.all
     @author = @book.author
+    @tags = Tag.all
+    @tag = @book.tag
     
     if @book.reviews.blank?
     @average_review = 0
