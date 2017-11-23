@@ -48,16 +48,11 @@ a.link-small{
 	border-bottom: 3px solid rgba(106,216,106,0.6);
 	box-shadow: inset 0 -3px 0 rgba(106,216,106,0.38);
 	transition: background .2s ease;
-	font-size: 16px;
+	font-size: 20px;
 	height: 20px;
-	box-sizing: border-box;
-	font-weight: 100;
 	display: inline-block;
 	line-height: 22.4px;
 	
-}
-.purple{
-	color: #8000FF;
 }
 a.link-small:hover{
 	text-decoration: none;
@@ -65,8 +60,15 @@ a.link-small:hover{
 	background: rgba(106,216,106,0.55);
 }
 
-.social-media li{
-	font-size: 20px;
+.purple{
+	color: #8000FF;
+}
+
+.white{
+	color: white;
+}
+a.white:hover{
+	color: white;
 }
 .mini{
 	width: 60px;
@@ -85,15 +87,21 @@ a.link-small:hover{
 
 
 }
+.col-6{
+	display: flex;
+	margin: 0 0 20px 0;
+	overflow: hidden;
+}
 .card{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 a{
-	color: rgb(100, 100, 100);
+	color: $gray-900;
 }
 a:hover{
+	color: $gray-900;
 	text-decoration: none;
 }
 .list-inline-item{
@@ -140,12 +148,12 @@ header h1{
 }
 .avatar{
 	position: absolute;
-	top: -25px;
+	top: -20px;
 	left: 35%;
 	border: 5px solid $white;
-	border-radius: 20%;
-	height: 100px;
-	width: 100px;
+	border-radius: 30%;
+	height: 80px;
+	width: 80px;
 	
 }
 

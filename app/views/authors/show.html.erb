@@ -7,7 +7,11 @@
 		<div class="col-md-8">
 			<div class="book-info">
 				
-				<h6><%= @author.fname %> <%= @author.lname %></h6>
+				<h5 class="section-title-home">
+					<div class="section-title-home-content">
+						<i class="mdi mdi-account-star"></i>
+				<%= @author.fname %> <%= @author.lname %>
+			</div></h5>
 
 				<h6><%= @author.country.name %></h6>
 				<h6><%= @author.category.name %></h6>

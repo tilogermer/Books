@@ -2,11 +2,10 @@
 
 one:
   title: MyString
-  book_img: MyString
   category_id: 1
   author_id: 1
   library_id: 1
-  media_id: 1
+  medium_id: 1
   year: MyString
   price: 1.5
   isFavorite: false
@@ -16,11 +15,10 @@ one:
 
 two:
   title: MyString
-  book_img: MyString
   category_id: 1
   author_id: 1
   library_id: 1
-  media_id: 1
+  medium_id: 1
   year: MyString
   price: 1.5
   isFavorite: false

@@ -13,7 +13,9 @@ class AboutController < ApplicationController
 		@books5 = Book.where(:isReturned => false, :library_id =>1).minimum(:return_date)
 
 
-    		
+    	
+  
+    	
 		
 
 		@categories = Category.all
@@ -21,6 +23,7 @@ class AboutController < ApplicationController
 		@libraries = Library.all
 		@readers = Reader.all
 		@reviews = Review.all
+
 		
 		
 	end
