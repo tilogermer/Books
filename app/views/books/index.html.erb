@@ -8,7 +8,7 @@
 	  <% else %>
 	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 		<% end %>
-	<%= link_to "Back", books_path, class: "btn btn-outline-secondary btn-sm float-right"  %>
+	<%= link_to "Back", books_path, class: "btn btn-outline-secondary btn-sm float-right small-device"  %>
 	</h3>
 
 	<% elsif params[:category] %>
@@ -32,7 +32,7 @@
 	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 		<% end %>
 		<% Library.all.each do |library| %>
-		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm float-right", style: "margin-left: 5px;" %>
+		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm float-right small-device", style: "margin-left: 5px;" %>
 		<% end %>
 	  </h3>
 	<% end %>
@@ -45,19 +45,23 @@
 		<% @books.each do |book| %>
 		
 
-		<div class="col-lg-2 col-md-3 col-6">
+		<div class="col-xl-2 col-md-3 col-6">
 			<div class="card-deck">
 				<div class="card">
 					<a href="/books/<%= book.id %>">
 						<%= image_tag (book.coverpath), class: "img-fluid card-img-top" %>
-					
-						<p class="card-text text-center"><%= book.title %></p>
+						<div class="bg-light">
+						<%= image_tag (book.reader.readerpath), class: "avatar-small" %>
 						<% unless params[:tag] %>
-						<p class="badge-info text-center"><%= book.tag %></p>
+						<p class="badge badge-info text-center"><%= book.tag %></p>
 						<% end %>
+						</div>
+						<div class="card-text">
+						<p class="card-text text-center" id="grow"><%= book.title %></p>
+						</div>
 					</a>
-				<div class="card-footer">
-      <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
+				<div class="card-footer text-center">
+      <small class="text-muted"><%= remove_unwanted_words time_ago_in_words(book.created_at) %> ago</small>
     </div>
 				</div>
 			</div>

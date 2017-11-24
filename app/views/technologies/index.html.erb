@@ -23,6 +23,7 @@
       <li>Iterations: <code>@books.each do |book|</code></li>
       <li>Conditions: <code>if TimeDifference.between( Date.today, @return_date_min).in_days <= 3</code></li>
       <li>Array functions: <code>Author.all.collect{|x| [x.lname + ', ' + x.fname, x.id]}.sort</code> </li>
+      <li>Tag as optional value for Model book: <code>belongs_to :tag, optional: true</code></li>
     </ul>
    </li>
    <li class="unten"><%= image_tag('logos/javascript', height: '30px', width: '30px') %> Javascript
