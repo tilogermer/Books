@@ -15,6 +15,10 @@
  */
 
 @import "bootstrap";
+@font-face {
+	font-family: 'Ubuntu', sans-serif;
+	src: url('https://fonts.googleapis.com/css?family=Ubuntu');
+}
 
 @mixin background-tile {
 	box-sizing: border-box;
@@ -90,15 +94,13 @@ a.white:hover{
 }
 .col-md-2{
 	display: flex;
-	margin: 0 0 20px 0;
-	overflow: hidden;
-
+	margin: 0 ;
+	
 
 }
 .col-6{
 	display: flex;
-	margin: 0 0 20px 0;
-	overflow: hidden;
+	margin: 0 ;
 }
 .card{
 	display: flex;
@@ -282,6 +284,7 @@ div.card-text{
 	font-size: 14px;
 	margin: auto;
 	padding: 5px;
+	font-family: 'Ubuntu', sans-serif;
 	
 }
 .flex-item{
