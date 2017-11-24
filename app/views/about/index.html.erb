@@ -48,14 +48,20 @@
 				<div class="card favorite">
 					<a href="/books/<%= book.id %>">
 						<%= image_tag (book.coverpath), class: " img-fluid card-img-top" %>
+						<div class="bg-light">
 						<a href="/readers/<%= reader.id %>">
 						<div class="card-img-overlay">
 						<%= image_tag (book.reader.readerpath), class: "avatar" %>
-						
+						<% unless params[:tag] %>
+						<p class="badge badge-info text-center"><%= book.tag %></p>
+						<% end %>
+						</div>
 						</div>
 						</a>
 					</a>
-					<div class="average-review-rating" data-score=<%= @average_review %>></div>
+					<div class="card-text">
+						<p class="card-text text-center flex-item"grow"><%= book.title %></p>
+						</div>
 				<span class="badge badge-purple" style="border-radius: 0;" ><%= reader.name %> <%= reader.books.where(:isReturned => false).count %> books</span>					
 
 				<div class="card-footer">
@@ -72,22 +78,5 @@
 
 
 
-<script>
-	$('.review-rating').raty({
-		readOnly: true,
-		score: function() {
-			return $(this).attr('data-score');
-		},
-		path: '/assets/'
-	});
-</script>
 
-<script>
-	$('.average-review-rating').raty({
-		readOnly: true,
-		path: '/assets/',
-		score: function() {
-			return $(this).attr('data-score')
-		}
-	});
-</script>
+

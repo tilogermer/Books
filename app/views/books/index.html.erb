@@ -56,14 +56,16 @@
 						<p class="badge badge-info text-center"><%= book.tag %></p>
 						<% end %>
 						</div>
+						</a>
 						<div class="card-text">
-						<p class="card-text text-center" id="grow"><%= book.title %></p>
+						<p class="card-text text-center flex-item"grow"><%= book.title %></p>
 						</div>
-					</a>
+					
 				<div class="card-footer text-center">
       <small class="text-muted"><%= remove_unwanted_words time_ago_in_words(book.created_at) %> ago</small>
     </div>
-				</div>
+		
+	</div>
 			</div>
 		</div>
 		<% end %>
