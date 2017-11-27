@@ -3,60 +3,57 @@
 
 <div class="row">
 	<div class="col-md-4">
-		<h4>Books per category</h4>
+		<h6>Books per category</h6>
 		<%= pie_chart Book.group(:category).count %>
 	</div>
 	<div class="col-md-4">
-		<h4>Books per library</h4>
+		<h6>Books per library</h6>
 		<%= pie_chart Book.group(:library).count, donut: true %>
 	</div>
 	<div class="col-md-4">
-		<h4>Authors per country</h4>
+		<h6>Authors per country</h6>
 		<%= pie_chart Author.group(:country).count %>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-4">
-		<h4>Books per category</h4>
-		<%= bar_chart Book.group(:category).count %>
+		<h6>Books per category</h6>
+		<%= bar_chart Book.group(:category).count, colors: ["red"] %>
 	</div>
 	<div class="col-md-4">
-		<h4>Books per library</h4>
+		<h6>Books per library</h6>
 		<%= bar_chart Book.group(:library).count %>
 	</div>
 	<div class="col-md-4">
-		<h4>Authors per country</h4>
-		<%= bar_chart Author.group(:country).count %>
+		<h6>Authors per country</h6>
+		<%= bar_chart Author.group(:country).count, colors: ['blue'] %>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-4">
-		<h4>Books per medium</h4>
+		<h6>Books per medium</h6>
 		<%= pie_chart Book.group(:medium).count %>
 	</div>
 	<div class="col-md-4">
-		<h4>Sum per medium</h4>
+		<h6>Sum per medium</h6>
 		<%= column_chart Book.group(:medium).sum(:price) %>
 	</div>
 	<div class="col-md-4">
-		<h4>Books per reader</h4>
+		<h6>Books per reader</h6>
 		<%= pie_chart Book.group(:reader).count %>
 	</div>
 </div>	
 
 <div class="row">
-    <div class="col-md-4">
-		<h4>Books per week</h4>
-		<%= column_chart Book.group_by_week(:date_start).count %>
+    
+	<div class="col-md-4">
+		<h6>Books per month</h6>
+		<%= column_chart Book.group_by_month(:date_start, format: "%b").count , colors: ["purple"]%>
 	</div>
 	<div class="col-md-4">
-		<h4>Books per month</h4>
-		<%= column_chart Book.group_by_month(:date_start).count %>
-	</div>
-	<div class="col-md-4">
-		<h4>Books per year</h4>
-		<%= column_chart Book.group_by_year(:date_start).count %>
+		<h6>Books per year</h6>
+		<%= column_chart Book.group_by_year(:date_start, format: "%Y").count %>
 	</div>
 </div>
