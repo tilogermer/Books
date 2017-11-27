@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171120114509) do
     t.integer "user_id"
     t.integer "reader_id"
     t.date "date_start"
-    t.integer "tag_id"
+    t.integer "tag_id", optional: true
   end
 
   create_table "categories", force: :cascade do |t|
