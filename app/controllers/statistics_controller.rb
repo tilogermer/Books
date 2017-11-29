@@ -8,4 +8,12 @@ class StatisticsController < ApplicationController
 		@readers = Reader.all
 		
 	end
+
+	def authors_by_country
+		result = {}
+		Country.all.map do |c|
+			result[c.name] = c.authors.count 
+		end
+		render json:[{name: 'Counter', data: result}]
+	end
 end

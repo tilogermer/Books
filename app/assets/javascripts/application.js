@@ -12,9 +12,10 @@
 //
 
 //= require Chart.bundle
-//= require chartkick
 //= require jquery
 //= require jquery_ujs
+//= require highcharts
+//= require chartkick
 //= require popper
 //= require bootstrap
 //= require turbolinks

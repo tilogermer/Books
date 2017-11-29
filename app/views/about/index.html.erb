@@ -48,15 +48,22 @@
 				<div class="card favorite">
 					<a href="/books/<%= book.id %>">
 						<%= image_tag (book.coverpath), class: " img-fluid card-img-top" %>
+						
 						<div class="bg-light">
 						<a href="/readers/<%= reader.id %>">
 						<div class="card-img-overlay">
 						<%= image_tag (book.reader.readerpath), class: "avatar" %>
+						</div>
+						
+						
+
+						</div>
+						
 						<% unless params[:tag] %>
+						<div class="bg-light-center">
 						<p class="badge badge-info text-center"><%= book.tag %></p>
+						</div>
 						<% end %>
-						</div>
-						</div>
 						</a>
 					</a>
 					<div class="card-text">

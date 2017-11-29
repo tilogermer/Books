@@ -277,6 +277,13 @@ div.bg-light{
 	justify-content: space-around;
 	padding-bottom: 5px;
 }
+div.bg-light-center{
+	
+	display: flex;
+	justify-content: center;
+	padding-bottom: 15px;
+}
+
 div.card-text{
 	display: flex;
 	align-items: center;
@@ -290,6 +297,14 @@ div.card-text{
 .flex-item{
 	flex: 1 1 auto;
 }
+$total: 80;
+$step: 360deg/$total;
+@for $i from 1 through $total {
+	.ray:nth-child(#{$i}) {
+		background: adjust-hue(blue, $i * $step);
+	}
+} 
+
 @media only print{
 	.printer{
 		display: none;

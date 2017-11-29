@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   resources :readers
   resources :tags
   
-  
+  resources :statistics, only:[] do
+    collection do
+      get 'authors_by_country'
+    end
+  end
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

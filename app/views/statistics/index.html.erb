@@ -38,7 +38,7 @@
 	</div>
 	<div class="col-md-4">
 		<h6>Sum per medium</h6>
-		<%= column_chart Book.group(:medium).sum(:price) %>
+		<%= column_chart Book.group(:medium).sum(:price), library:{backgroundColor: "red"} %>
 	</div>
 	<div class="col-md-4">
 		<h6>Books per reader</h6>
@@ -56,4 +56,11 @@
 		<h6>Books per year</h6>
 		<%= column_chart Book.group_by_year(:date_start, format: "%Y").count %>
 	</div>
+	<div class="col-md-4">
+		<h6>Authors by country</h6>
+		<%= authors_by_country %>
+		
+	</div>
+	
 </div>
+

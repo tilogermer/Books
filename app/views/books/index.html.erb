@@ -1,26 +1,29 @@
 
 	<% if params[:library] %>
-	  <h3 class=""><%= params[:library] %> <span class="badge badge-info"><%= @books.count %></span>
+	  <h3><%= params[:library] %> <span class="badge badge-info"><%= @books.count %></span>
 		
 		<% if TimeDifference.between( Date.today, @books.where(:isReturned => false).minimum(:return_date) ).in_days <= 3 %>
-
-	  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
-	  <% else %>
-	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
+		  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
+	    <% else %>
+	      <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 		<% end %>
+
 	<%= link_to "Back", books_path, class: "btn btn-outline-secondary btn-sm float-right small-device"  %>
 	</h3>
 
 	<% elsif params[:category] %>
-	  <h3 class="current-category"><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>
+	  <h3><%= params[:category] %> <span class="badge badge-info"> <%= @books.count %> </span></h3>
 
 	 <% elsif params[:tag] %>
 	 <% @tags.each do |tag| %>
-	
-	 <span class="badge badge-purple"><%= link_to tag.name, books_path(tag: tag.name), class: "white" %></span>
+	 <span class="badge badge-purple ray"><%= link_to tag.name, books_path(tag: tag.name), class: "white" %></span>
 	 <% end %> 
+	  <h3><i class="mdi mdi-tag-faces text-info"></i> <%= params[:tag] %> <span class="badge badge-info"> <%= @books.count %> </span></h3> 
 	
-	  <h3 class="current-category"><i class="mdi mdi-tag-faces text-info"></i> <%= params[:tag] %> <span class="badge badge-info"> <%= @books.count %> </span></h3> 
+	<% elsif params[:reader] %>
+	  <h3><%= params[:reader] %> <span class="badge badge-info"><%= @books.count %></span>
+		  <%= link_to "Back", books_path, class: "btn btn-outline-secondary btn-sm float-right small-device"  %>
+	</h3>
 
 	<% else %>
 
@@ -31,9 +34,19 @@
 	  <% else %>
 	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 		<% end %>
+		
+		<% Reader.all.each do |reader| %>
+		<% if reader.books.count > 0 %>
+		<%= link_to reader.name, books_path(reader: reader.name), class: "btn btn-outline-info btn-sm float-right small-device", style: "margin-left: 5px;" %>
+		<% end %>
+		<% end %>
+
 		<% Library.all.each do |library| %>
 		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm float-right small-device", style: "margin-left: 5px;" %>
 		<% end %>
+
+		
+
 	  </h3>
 	<% end %>
 	
@@ -75,6 +88,4 @@
 
 	
 	<%= link_to "Add Book", new_book_path, class: 'btn btn-outline-secondary btn-sm' %>
-
-
 
