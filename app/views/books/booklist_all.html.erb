@@ -7,7 +7,7 @@
 		<th>Book Title</th>
 		<th>Medium</th>
 		<th>Lib</th>
-		<th>Days</th>
+		
 		<th>Return Date</th>
 		<th class="printer" ">Actions</th>
 	</tr>
@@ -16,7 +16,7 @@
 			<td class="printer-font"><%= book.title %></td>
 			<td class="printer-font printer-font-color"><%= book.medium.name %></td>
 			<td class="printer-font printer-font-color"><%= book.library.name %></td>
-			<td class="printer-font printer-font-color"><%= TimeDifference.between(book.date_start, book.return_date).in_days.to_int %></td>
+			
 			<% if TimeDifference.between( Date.today, book.return_date).in_days <= 3 %>
 			<td class="text-danger printer-font"><%= book.return_date %></td>
 				<% else %>

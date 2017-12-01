@@ -1,15 +1,15 @@
 class Book < ApplicationRecord
-	belongs_to :category
-	belongs_to :reader
-	belongs_to :author
-	belongs_to :medium
+	belongs_to :category, optional: true
+	belongs_to :reader, optional: true
+	belongs_to :author, optional: true
+	belongs_to :medium, optional: true
 	belongs_to :library
 	belongs_to :user
 	has_many :reviews
 	belongs_to :tag, optional: true
 
-	
-
+	scope :sorted, -> {order(return_date: :asc)}	
+	scope :sorted_des, -> {order(return_date: :desc)}
 	def to_s
 		title
 	end
