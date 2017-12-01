@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     
   get 'about' => 'about#index'
   get 'books/booklist' => 'books#booklist'
+  get 'books/booklist_all' => 'books#booklist_all'
   get 'books/new_books' => 'books#new_books'
   get 'statistics' => 'statistics#index'
   get 'technologies' => 'technologies#index'
