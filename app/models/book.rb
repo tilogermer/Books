@@ -10,6 +10,10 @@ class Book < ApplicationRecord
 
 	scope :sorted, -> {order(return_date: :asc)}	
 	scope :sorted_des, -> {order(return_date: :desc)}
+	scope :pending, -> {where(isReturned: false)}
+
+	
+
 	def to_s
 		title
 	end

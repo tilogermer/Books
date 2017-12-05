@@ -3,39 +3,39 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   
   def index
-    @page_title = 'Overlook'
+    
     @tags = Tag.all
-    @return_date_min = Book.where(:isReturned => false).minimum(:return_date)
+    @return_date_min = Book.pending.minimum(:return_date)
 
   if params[:category].blank? && params[:library].blank? && params[:tag].blank? && params[:reader].blank?
-    @books = Book.where(:isReturned => false).sorted
+    @books = Book.pending.sorted
       @page_title = 'Overlook'
 
     elsif params[:library].blank? && params[:tag].blank? && params[:reader].blank?
       @category_id = Category.find_by(name: params[:category]).id
-      @books = Book.where(:category_id => @category_id).sorted_des
+      @books = Book.where(category_id: @category_id).sorted_des
       @page_title = 'Categories'
 
     elsif params[:library].blank? && params[:category].blank? && params[:reader].blank?
       @tag_id = Tag.find_by(name: params[:tag]).id
-      @books = Book.where(:tag_id => @tag_id).sorted_des
+      @books = Book.where(tag_id: @tag_id).sorted_des
       @page_title = 'Tags'
 
     elsif params[:library].blank? && params[:category].blank? && params[:tag].blank?
       @reader_id = Reader.find_by(name: params[:reader]).id
-      @books = Book.where(:reader_id => @reader_id, :isReturned => false).sorted_des
+      @books = Book.where(reader_id: @reader_id, isReturned: false).sorted_des
       @page_title = 'Readers' 
 
     else
       @library_id = Library.find_by(name: params[:library]).id
-      @books = Book.where(:library_id => @library_id, :isReturned => false).sorted
+      @books = Book.where(library_id: @library_id, isReturned: false).sorted
       @page_title = 'Libraries'
     end
       
   end
    
   def booklist
-    @books = Book.where(:isReturned => false).order("return_date ASC")
+    @books = Book.pending.sorted
     @categories = Category.all
     @readers = Reader.all
     @page_title = 'Book list'
@@ -47,7 +47,7 @@ class BooksController < ApplicationController
   end
   
   def new_books
-    @books = Book.where(:isNew => true).order("created_at ASC")
+    @books = Book.where(isNew: true).order("created_at ASC")
     @page_title = 'new'
   end
 
