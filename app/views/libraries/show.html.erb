@@ -1,7 +1,7 @@
-
+<div class="stretcher">
 <div class="row">
 		<div class="col-md-4">
-			<%= image_tag @library.image_url, class: "author-show" %>
+			<%= image_tag @library.image_url.to_s, class: "img-fluid"   %>
 		</div>
 
 		<div class="col-md-8">
@@ -9,7 +9,7 @@
 				
 				<h5 class="section-title-home">
 					<div class="section-title-home-content">
-						<i class="mdi mdi-account-star"></i>
+						<i class="mdi mdi-library"></i>
 				<%= @library.name %>
 			</div></h5>
 
@@ -26,3 +26,5 @@
 			</div>
 		</div>
 	</div>
+
+</div>

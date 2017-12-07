@@ -46,7 +46,7 @@ before_action :find_tag, only: [:show, :edit, :update, :destroy]
 
   private
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :image, :description)
   end
 
   def find_tag

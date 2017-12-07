@@ -1,2 +1,31 @@
-<h1>Tags#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
+
+<div class="stretcher">
+<div class="row">
+		<div class="col-md-4">
+			<%= image_tag @tag.image_url.to_s, class: "img-fluid" %>
+		</div>
+
+		<div class="col-md-8">
+			<div class="book-info">
+				
+				<h5 class="section-title-home">
+					<div class="section-title-home-content">
+						<i class="mdi mdi-tag"></i>
+				<%= @tag.name %>
+			</div></h5>
+
+				<h6>Books total: <%= @tag.books.count %></h6>
+				<p class="book-description"><%= @tag.description %></p>
+				
+				<div class="links btn-group">
+					<%= link_to "Back", tags_path, class: "btn btn-custom" %>
+
+					<%= link_to "Edit", edit_tag_path, class: "btn btn-custom" %>
+					<%= link_to "Delete", tag_path(@tag), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
