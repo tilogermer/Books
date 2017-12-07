@@ -8,14 +8,23 @@
 		<% @books.each do |book| %>
 		
 
-		<div class="col-md-3">
+		<div class="col-md-3 col-sm-6">
 			<div class="card-deck">
 				<div class="card">
 					<a href="/books/<%= book.id %>">
-						<%= image_tag (book.coverpath), class: "book img-fluid card-img-top" %>
-						<p class="card-text"><%= book.title %></p>
+						<%= image_tag (book.coverpath), class: "img-fluid card-img-top" %>
+
+						<div class="bg-light">
+							<% unless params[:tag] %>
+						<p class="badge badge-info text-center"><%= book.tag %></p>
+						<% end %>
+						</div>
 					</a>
-					<div class="card-footer">
+					<div class="card-text">
+						<p class="card-text text-center flex-item"><%= book.title %></p>
+					</div>
+
+					<div class="card-footer text-center">
       <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
     </div>
 				</div>
