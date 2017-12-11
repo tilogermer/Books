@@ -2,7 +2,7 @@
 	<% if params[:library] %>
 	  <h3><%= params[:library] %> <span class="badge badge-info"><%= @books.count %></span>
 		
-		<% if TimeDifference.between( Date.today, @books.where(:isReturned => false).minimum(:return_date) ).in_days <= 3 %>
+		<% if TimeDifference.between( Date.today, @return_date_min).in_days <= 3 %>
 		  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 	    <% else %>
 	      <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
@@ -28,7 +28,7 @@
 	<% else %>
 
 	  <h3>Books lent <span class="badge badge-info"><%= @books.count %> </span>
-		<% if TimeDifference.between( Date.today, @books.where(:isReturned => false).minimum(:return_date) ).in_days <= 3 %>
+		<% if TimeDifference.between( Date.today,@return_date_min).in_days <= 3 %>
 		
 	  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 	  <% else %>
@@ -88,7 +88,8 @@
 
 	</div>
 	<% end %>
-
+	
+	<%= will_paginate @books, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 	
 	<%= link_to "Add Book", new_book_path, class: 'btn btn-outline-secondary btn-sm' %>
 

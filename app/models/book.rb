@@ -13,7 +13,8 @@ class Book < ApplicationRecord
 	scope :pending, -> {where(isReturned: false)}
 
 	
-
+	self.per_page = 24
+	
 	def to_s
 		title
 	end

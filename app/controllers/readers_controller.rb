@@ -26,7 +26,7 @@ class ReadersController < ApplicationController
 
   def show
     @readers = Reader.all
-    @books = @reader.books.order("return_date DESC")
+    @books = @reader.books.page(params[:page]).order("return_date DESC")
     
   end
 
