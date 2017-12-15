@@ -16,14 +16,7 @@
 			<td class="printer-font"><%= book.title %></td>
 			<td class="printer-font printer-font-color"><%= book.medium.name %></td>
 			<td class="printer-font printer-font-color"><%= book.library.name %></td>
-			
-			<% if TimeDifference.between( Date.today, book.return_date).in_days <= 3 %>
-			<td class="text-danger printer-font"><%= book.return_date %></td>
-				<% else %>
 			<td class="text-dark printer-font"><%= book.return_date %></td>
-				<% end %>
-				
-			
 			<td class="printer"> <%= link_to "Show", book_path(book.id) %> | <%= link_to "Edit", edit_book_path(book.id) %> | <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
