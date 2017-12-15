@@ -86,6 +86,8 @@ GEM
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     groupdate (3.2.0)
@@ -235,6 +237,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.2)
   devise
+  friendly_id
   groupdate
   hightop
   jbuilder (~> 2.5)

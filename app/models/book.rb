@@ -8,6 +8,9 @@ class Book < ApplicationRecord
 	has_many :reviews
 	belongs_to :tag, optional: true
 
+	extend FriendlyId
+    friendly_id :title, use: :slugged
+
 	scope :sorted, -> {order(return_date: :asc)}	
 	scope :sorted_des, -> {order(return_date: :desc)}
 	scope :pending, -> {where(isReturned: false)}
