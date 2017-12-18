@@ -27,6 +27,15 @@
 
 body{
 	font-family: 'Open Sans', sans-serif;
+	
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.content{
+	flex-grow: 1;
 }
 
 @mixin background-tile {
@@ -38,7 +47,9 @@ body{
 }
 
 footer{
+	margin-top: 10px;
 	padding: 10px;
+
 }
 ul.ohne{
 	list-style-type: none;

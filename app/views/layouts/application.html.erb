@@ -16,14 +16,16 @@
 </head>
 
 <body>
+  
   <div class="container">
-  	<%= render 'layouts/navbar' %>
+  <%= render 'layouts/navbar' %>	
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+  <div class="content">
    <%= yield %>
-
-   <%= render 'layouts/footer' %>
+  </div>
+  <%= render 'layouts/footer' %> 
  </div>
+
 </body>
 </html>
