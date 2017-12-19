@@ -34,6 +34,15 @@ body{
 	flex-direction: column;
 	min-height: 100vh;
 }
+.header-books{
+	display: flex;
+
+	justify-content: space-between;
+}
+.header-selection{
+	display: inline-block;
+}
+
 .content{
 	flex-grow: 1;
 }
@@ -348,8 +357,14 @@ $step: 360deg/$total;
 	.btn-outline-secondary{
 		margin-bottom: 3px;
 	}
-	.small-device{
-		display: none;
+	.btn-outline-info{
+		margin-bottom: 3px;
+	}
+	.header-selection{
+		font-size: 24px;
+	}
+	.btn-sm{
+		padding: 4px;
 	}
 	.text-muted{
 		font-size: 12px;
@@ -357,5 +372,14 @@ $step: 360deg/$total;
 	.col-6{
 		padding-left: 5px;
 		padding-right: 5px;
+	}
+}
+
+@media (max-width: 990px){
+	.header-books{
+		flex-direction: column;
+	}
+	.header-selection{
+		margin-bottom: 10px;
 	}
 }

@@ -27,28 +27,31 @@
 
 	<% else %>
 
-	  <h3>Books lent <span class="badge badge-info"><%= @books.count %> </span>
+	<div class="header-books">
+
+	  <h3 class="header-selection">Books lent <span class="badge badge-info"><%= @books.count %> </span>
 		<% if TimeDifference.between( Date.today,@return_date_min).in_days <= 3 %>
 		
 	  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 	  <% else %>
 	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
 		<% end %>
-		
+	</h3>	
+	<div class="header-selection">
 		<% Reader.all.each do |reader| %>
 		<% if reader.books.count > 0 %>
-		<%= link_to reader.name, books_path(reader: reader.name), class: "btn btn-outline-info btn-sm float-right small-device", style: "margin-left: 5px;" %>
+		<%= link_to reader.name, books_path(reader: reader.name), class: "btn btn-outline-info btn-sm", style: "margin-left: 5px;" %>
 		<% end %>
 		<% end %>
 
 		<% Library.all.each do |library| %>
-		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm float-right small-device", style: "margin-left: 5px;" %>
+		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm", style: "margin-left: 5px;" %>
 		<% end %>
-
 		
-
-	  </h3>
+	</div>
 	<% end %>
+ </div>	  
+	
 	
 	<% if @books.count == 0 %>
 	<h4>There are currently no books in this category </h4>
