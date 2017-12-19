@@ -15,7 +15,7 @@
 			<td><%= library.name %></td>
 			<td><%= library.books.count %></td>
 			<td><%= image_tag library.image_url(:thumb).to_s %></td>
-			<td><%= link_to "Show", library_path(library.id) %> | <%= link_to "Edit", edit_library_path(library.id) %> | <%= link_to "Delete", library_path(library), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+			<td><%= link_to "Show", library_path(library) %> | <%= link_to "Edit", edit_library_path(library) %> | <%= link_to "Delete", library_path(library), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
 	<% end %>

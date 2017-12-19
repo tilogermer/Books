@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219145632) do
+ActiveRecord::Schema.define(version: 20171219153441) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171219145632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "authorpath"
+    t.string "slug"
   end
 
   create_table "books", force: :cascade do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171219145632) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -83,12 +85,14 @@ ActiveRecord::Schema.define(version: 20171219145632) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.text "description"
+    t.string "slug"
   end
 
   create_table "media", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "readers", force: :cascade do |t|
@@ -97,6 +101,7 @@ ActiveRecord::Schema.define(version: 20171219145632) do
     t.datetime "updated_at", null: false
     t.string "readerpath"
     t.text "description"
+    t.string "slug"
   end
 
   create_table "reviews", force: :cascade do |t|

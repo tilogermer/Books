@@ -47,7 +47,7 @@ class MediaController < ApplicationController
   end
 
   def find_medium
-    @medium = Medium.find(params[:id])
+    @medium = Medium.friendly.find(params[:id])
   end
 
 end

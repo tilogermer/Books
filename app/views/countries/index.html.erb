@@ -13,7 +13,7 @@
 		<tr>
 			<td><%= country.name %></td>
 			<td><%= country.authors.count %></td>
-			<td><%= link_to "Edit", edit_country_path(country.id) %> | <%= link_to "Delete", country_path(country), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+			<td><%= link_to "Edit", edit_country_path(country) %> | <%= link_to "Delete", country_path(country), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
 	<% end %>

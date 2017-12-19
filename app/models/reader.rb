@@ -13,6 +13,9 @@
 class Reader < ApplicationRecord
 	has_many :books
 
+	extend FriendlyId
+    friendly_id :name, use: :slugged
+    
 	def to_s
 		name
 	end

@@ -10,6 +10,9 @@
 
 class Country < ApplicationRecord
 	has_many :authors
+	
+	extend FriendlyId
+    friendly_id :name, use: :slugged
 
 	def to_s
 		name

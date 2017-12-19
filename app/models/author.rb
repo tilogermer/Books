@@ -17,4 +17,7 @@ class Author < ApplicationRecord
 	belongs_to :country
 	belongs_to :category
 	has_many :books
+
+	extend FriendlyId
+    friendly_id :lname, use: :slugged
 end

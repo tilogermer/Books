@@ -46,6 +46,6 @@ class LibrariesController < ApplicationController
   end
 
   def find_library
-    @library = Library.find(params[:id])
+    @library = Library.friendly.find(params[:id])
   end
 end

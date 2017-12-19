@@ -15,6 +15,9 @@ class Library < ApplicationRecord
 	
 	mount_uploader :image, ImageUploader
 
+	extend FriendlyId
+    friendly_id :name, use: :slugged
+    
 	def to_s
 		name
 	end

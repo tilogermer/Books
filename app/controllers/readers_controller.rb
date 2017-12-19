@@ -49,7 +49,7 @@ class ReadersController < ApplicationController
   end
 
   def find_reader
-    @reader = Reader.find(params[:id])
+    @reader = Reader.friendly.find(params[:id])
   end
 
 end

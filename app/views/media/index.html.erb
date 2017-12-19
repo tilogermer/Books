@@ -12,7 +12,7 @@
 		<tr>
 			<td><%= medium.name %></td>
 			<td><%= medium.books.count %></td>
-			<td><%= link_to "Edit", edit_medium_path(medium.id) %> | <%= link_to "Delete", medium_path(medium), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+			<td><%= link_to "Edit", edit_medium_path(medium) %> | <%= link_to "Delete", medium_path(medium), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
 	<% end %>
