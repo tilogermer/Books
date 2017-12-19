@@ -38,6 +38,8 @@ class Book < ApplicationRecord
 	extend FriendlyId
     friendly_id :title, use: :slugged
 
+    mount_uploader :image, ImageUploader
+
 	scope :sorted, -> {order(return_date: :asc)}	
 	scope :sorted_des, -> {order(return_date: :desc)}
 	scope :pending, -> {where(isReturned: false)}

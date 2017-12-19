@@ -13,7 +13,7 @@
 		<tr>
 			<td><%= category.name %></td>
 			<td><%= category.books.count %></td>
-			<td> <%= link_to "Edit", edit_category_path(category.id) %> | <%= link_to "Delete", category_path(category), method: :delete, data: {confirm: 'Are you sure'} %> </td>
+			<td> <%= link_to "Edit", edit_category_path(category) %> | <%= link_to "Delete", category_path(category), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 
 		</tr>
 	<% end %>
