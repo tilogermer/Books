@@ -49,8 +49,8 @@
 				<li class="list-inline-item" >Price: <%= @book.price %> EUR</li>
 			</ul>
 			
-			<p>retour <%= @book.return_date %></p>
-			<p><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</p>
+			<p>retour <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
+			<p>days lent <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %></span></p>
 			
 			<p class="book-description"><%= @book.description %></p>
 			
