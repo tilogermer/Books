@@ -38,20 +38,21 @@
 		<% end %>
 	</h3>	
 	<div class="header-selection">
+
+		<% Library.all.each do |library| %>
+		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm", style: "margin-left: 5px;" %>
+		<% end %>
 		<% Reader.all.each do |reader| %>
 		<% if reader.books.count > 0 %>
 		<%= link_to reader.name, books_path(reader: reader.name), class: "btn btn-outline-info btn-sm", style: "margin-left: 5px;" %>
 		<% end %>
 		<% end %>
 
-		<% Library.all.each do |library| %>
-		<%= link_to library.name, books_path(library: library.name), class: "btn btn-outline-secondary btn-sm", style: "margin-left: 5px;" %>
-		<% end %>
-		
+				
 	</div>
-	<% end %>
- </div>	  
 	
+ </div>	  
+	<% end %>
 	
 	<% if @books.count == 0 %>
 	<h4>There are currently no books in this category </h4>
