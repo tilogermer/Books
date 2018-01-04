@@ -15,7 +15,7 @@
 
 				<h6><%= @author.country.name %></h6>
 				<h6><%= @author.category.name %></h6>
-				<p class="book-description"><%= @author.description %></p>
+				<div class="book-description"><%= markdown(@author.description) %></div>
 				
 				<div class="links btn-group">
 					<%= link_to "Back", authors_path, class: "btn btn-custom" %>

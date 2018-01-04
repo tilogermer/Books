@@ -15,7 +15,8 @@
 			</div></h5>
 
 				<h6>Books total: <%= @tag.books.count %></h6>
-				<p class="book-description"><%= @tag.description %></p>
+				<div class="book-description"><%= markdown(@tag.description)
+				 %></div>
 				
 				<div class="links btn-group">
 					<%= link_to "Back", tags_path, class: "btn btn-custom" %>

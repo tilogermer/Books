@@ -13,7 +13,7 @@
 					<%= @reader.name %></div></h5>
 
 				
-				<p class="book-description"><%= @reader.description %></p>
+				<div class="book-description"><%= markdown(@reader.description) %></div>
 				
 				<div class="links btn-group">
 					<%= link_to "Back", readers_path, class: "btn btn-custom" %>

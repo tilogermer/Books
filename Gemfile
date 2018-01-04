@@ -45,7 +45,7 @@ gem 'time_difference'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem 'friendly_id'
-
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

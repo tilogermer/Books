@@ -49,10 +49,13 @@
 				<li class="list-inline-item" >Price: <%= @book.price %> EUR</li>
 			</ul>
 			
-			<p>retour <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
-			<p>days lent <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %></span></p>
+			<p>retour: <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
+			<p>loan period: <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</span></p>
 			
-			<p class="book-description"><%= @book.description %></p>
+			<div class="book-description">
+				<%= markdown(@book.description) %>
+					
+				</div>
 			
 			<div class="links btn-group">
 				<%= link_to "Back", books_path, class: "btn btn-custom" %>
