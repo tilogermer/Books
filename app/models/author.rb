@@ -18,6 +18,8 @@ class Author < ApplicationRecord
 	belongs_to :category
 	has_many :books
 
+	mount_uploader :image, ImageUploader
+	
 	extend FriendlyId
     friendly_id :lname, use: :slugged
 end

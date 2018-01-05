@@ -10,6 +10,8 @@
 
 class Country < ApplicationRecord
 	has_many :authors
+
+	mount_uploader :image, ImageUploader
 	
 	extend FriendlyId
     friendly_id :name, use: :slugged

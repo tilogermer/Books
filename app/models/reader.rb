@@ -16,6 +16,8 @@ class Reader < ApplicationRecord
 	extend FriendlyId
     friendly_id :name, use: :slugged
     
+    mount_uploader :image, ImageUploader
+    
 	def to_s
 		name
 	end

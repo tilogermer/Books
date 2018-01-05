@@ -6,12 +6,14 @@
 <table class="table table-striped">
 	<tr>
 		<th>Country</th>
+		<th>Flag</th>
 		<th>Books</th>
 		<th>Actions</th>
 	</tr>
 	<% @countries.each do |country| %>
 		<tr>
 			<td><%= country.name %></td>
+			<td><%= image_tag country.image_url(:thumb).to_s %></td>
 			<td><%= country.authors.count %></td>
 			<td><%= link_to "Edit", edit_country_path(country) %> | <%= link_to "Delete", country_path(country), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 

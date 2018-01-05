@@ -4,7 +4,7 @@
 		
 	<div class="card">
 					
-						<%= image_tag (@book.coverpath), class: "img-fluid card-img-top" %>
+						<%= image_tag @book.image_url.to_s, class: "img-fluid card-img-top" %>
 						<div class="bg-light">
 						<%= image_tag (@book.reader.readerpath), class: "avatar-small" %>
 						<% unless params[:tag] %>
@@ -52,11 +52,12 @@
 			<p>retour: <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
 			<p>loan period: <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</span></p>
 			
-			<div class="book-description">
+			<div class="book-description hideContent">
 				<%= markdown(@book.description) %>
-					
-				</div>
+			</div>
 			
+			<div class="show-more text-muted">more</div>
+
 			<div class="links btn-group">
 				<%= link_to "Back", books_path, class: "btn btn-custom" %>
 
@@ -100,4 +101,12 @@
 			return $(this).attr('data-score')
 		}
 	});
+</script>
+
+<script>
+	$('.show-more').on('click', () => {
+		$('.book-description').css('height', 'auto');
+		});
+
+	
 </script>

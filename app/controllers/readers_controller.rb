@@ -45,7 +45,7 @@ class ReadersController < ApplicationController
   private
 
   def reader_params
-    params.require(:reader).permit(:name, :readerpath, :description)
+    params.require(:reader).permit(:name, :readerpath, :image, :description)
   end
 
   def find_reader

@@ -5,6 +5,7 @@
 <table class="table table-hover">
 	<tr>
 		<th>Author</th>
+		<th>Image</th>
 		<th>Category</th>
 		<th>Country</th>
 		<th>Books</th>
@@ -13,6 +14,7 @@
 	<% @authors.each do |author| %>
 		<tr>
 			<td><%= author.fname %> <%= author.lname %></td>
+			<td><%= image_tag author.image_url(:thumb).to_s %></td>
 			<td><%= author.category.name %></td>
 			<td><%= author.country.name %></td>
 			<td><%= author.books.count %></td>
