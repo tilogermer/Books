@@ -37,10 +37,12 @@
 			<h5><%= link_to @book.author.fname + ' ' + @book.author.lname , author_path(@author.id), class: "link-big" %></h5>	
 			<% end %>
 
-			<h6 class="avg-rating">Average Rating</h6>
+			<h6 class="avg-rating text-muted">Average Rating</h6>
 		
 		    <div class="average-review-rating" data-score=<%= @average_review %>></div>
-		    <span class="number-of-reviews" >Based on <%= @book.reviews.count %> reviews</span>
+		    <span class="number-of-reviews text-muted" >Based on <%= @book.reviews.count %> reviews</span>
+
+		    
 			<ul class="list-inline bg-light">
 				<li class="list-inline-item">Lib: <%= @book.library.name %></li>
 				<li class="list-inline-item"><%= @book.reader.name %></li>
@@ -49,14 +51,14 @@
 				<li class="list-inline-item" >Price: <%= @book.price %> EUR</li>
 			</ul>
 			
-			<p>retour: <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
-			<p>loan period: <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</span></p>
+			<p class="no-margin-bottom">retour: <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
+			<p class="no-margin-bottom">loan period: <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</span></p>
 			
 			<div class="book-description hideContent">
 				<%= markdown(@book.description) %>
 			</div>
 			
-			<div class="show-more text-muted">more</div>
+			<div class="show-more"><span class="text-muted">more</span></div>
 
 			<div class="links btn-group">
 				<%= link_to "Back", books_path, class: "btn btn-custom" %>
@@ -105,7 +107,8 @@
 
 <script>
 	$('.show-more').on('click', () => {
-		$('.book-description').css('height', 'auto');
+		$('.book-description').toggleClass('showContent');
+
 		});
 
 	
