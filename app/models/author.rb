@@ -22,4 +22,8 @@ class Author < ApplicationRecord
 	
 	extend FriendlyId
     friendly_id :lname, use: :slugged
+
+    def self.search(search)
+    	where("fname LIKE ? OR lname LIKE ?", "%#{search}%", "%#{search}%" )
+    end
 end

@@ -42,7 +42,7 @@
 		    <div class="average-review-rating" data-score=<%= @average_review %>></div>
 		    <span class="number-of-reviews text-muted" >Based on <%= @book.reviews.count %> reviews</span>
 
-		    
+
 			<ul class="list-inline bg-light">
 				<li class="list-inline-item">Lib: <%= @book.library.name %></li>
 				<li class="list-inline-item"><%= @book.reader.name %></li>
@@ -58,7 +58,7 @@
 				<%= markdown(@book.description) %>
 			</div>
 			
-			<div class="show-more"><span class="text-muted">more</span></div>
+			<div class="show-more"><span class="text-muted">Read more</span></div>
 
 			<div class="links btn-group">
 				<%= link_to "Back", books_path, class: "btn btn-custom" %>
@@ -108,7 +108,7 @@
 <script>
 	$('.show-more').on('click', () => {
 		$('.book-description').toggleClass('showContent');
-
+		
 		});
 
 	

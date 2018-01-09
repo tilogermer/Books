@@ -57,7 +57,11 @@
 	<% if @books.count == 0 %>
 	<h4>There are currently no books in this category </h4>
 	<% else %>	
-
+	  <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Book" %>
+      <%= submit_tag "Search", :name => nil %>
+      <% end %>
+      <br>
 	<div class="row">
 		<% @books.each do |book| %>
 		

@@ -50,5 +50,9 @@ class Book < ApplicationRecord
 	def to_s
 		title
 	end
+
+	def self.search(search)
+    	where("title LIKE ?","%#{search}%" )
+    end
 	
 end

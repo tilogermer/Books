@@ -4,6 +4,11 @@ class AuthorsController < ApplicationController
   def index
     @page_title = 'Authors'
     @authors = Author.all.order("lname ASC")
+    if params[:search]
+      @authors = Author.search(params[:search]).order("lname ASC")
+    else
+      @authors = Author.all.order("lname ASC")
+    end 
   end
 
   def new
