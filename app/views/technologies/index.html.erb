@@ -112,6 +112,9 @@
   </div>
   <h3>Gems</h3>
   <div>
+    <ul>
+      <li></li>
+    </ul>
     <p>
     Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
     ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
@@ -128,21 +131,14 @@
     
   </div>
   <h3>Github</h3>
+  <div>
   <ul>
    <li class="unten"><%= image_tag('logos/github', height: '30px', width: '30px') %> <a href="https://github.com/tilogermer/books" target="_blank" class="link-big"> Github</a></li>
+   <li>development platform inspired by the way you work</li>
+   <li>host and review code, manage projects, and build software alongside millions of other developers</li>
   </ul>
-  <div>
-    <p>
-    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-    mauris vel est.
-    </p>
-    <p>
-    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos.
-    </p>
+  
+    
   </div>
 </div>
 
@@ -151,7 +147,9 @@
 <script>
   $( function() {
    
-    $( "#accordion" ).accordion();
+    $( "#accordion" ).accordion({
+      heightStyle: "content"
+    });
     
         
   } );
