@@ -36,7 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
-gem "paperclip", "~> 5.0.0"
+gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
 gem "chartkick"
 gem 'groupdate'
 gem 'hightop'
@@ -46,6 +47,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem 'friendly_id'
 gem 'redcarpet'
+gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

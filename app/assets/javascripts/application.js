@@ -13,6 +13,7 @@
 
 //= require Chart.bundle
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require highcharts
 //= require chartkick

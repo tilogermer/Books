@@ -54,11 +54,12 @@
 			<p class="no-margin-bottom">retour: <span class="text-muted"><%= @book.return_date.strftime('%a, %d %b') %></span></p>
 			<p class="no-margin-bottom">loan period: <span class="text-muted"><%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</span></p>
 			
-			<div class="book-description hideContent">
+			<div class="book-description content hideContent">
 				<%= markdown(@book.description) %>
 			</div>
 			
-			<div class="show-more"><span class="text-muted">Read more</span></div>
+			<div class="show-more"><span class="text-muted">Show more</span>
+			</div>
 
 			<div class="links btn-group">
 				<%= link_to "Back", books_path, class: "btn btn-custom" %>
@@ -106,10 +107,10 @@
 </script>
 
 <script>
-	$('.show-more').on('click', () => {
+	$('.show-more').on("click", function() {
 		$('.book-description').toggleClass('showContent');
 		
-		});
-
-	
+	});
 </script>
+
+

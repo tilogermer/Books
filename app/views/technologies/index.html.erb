@@ -1,9 +1,31 @@
 
 <h1 class="text-center"><i class="mdi mdi-keyboard-variant purple"></i>Technologies</h1>
 
-<ul class="ohne">
-  <li class="unten"><%= image_tag('logos/bootstrap', height: '30px', width: '30px') %> <a href="https://getbootstrap.com/" class="link-big" target="_blank">Bootstrap</a>
+
+<div id="accordion">
+  <h3>HTML5</h3>
+  
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+  <h3>CSS3</h3>
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+  <h3>Bootstrap 4</h3>
+  <div>
     <ul>
+      <li class="unten"><%= image_tag('logos/bootstrap', height: '30px', width: '30px') %> <a href="https://getbootstrap.com/" class="link-big" target="_blank">Bootstrap</a></li>
       <li>Usage of predefined classes for navbar, container, badges, buttons, tables</li>
       <li>Responsive images with <code>img-fluid</code> with max-width: 100%; height: auto</li>
       <li>Helper classes for padding <code>pr-sm-1</code>, <code>pl-sm-1</code> and margin <code>mt-1</code>, <code>mb-1</code></li>
@@ -12,10 +34,56 @@
       <li>Special print layout with media query for print <code>@media only print { ... }</code></li>
       <li>Large selection of <a href="https://cdn.materialdesignicons.com/1.1.34/" class="link-small">Material Design Icons</a> - <i class="mdi mdi-pencil-box"></i><i class="mdi mdi-chart-bar"></i><i class="mdi mdi-home"></i> - with variable font-size and color</li>
     </ul>
-   </li>
-   
-   <li class="unten" ><%= image_tag('logos/ruby', height: '30px', width: '30px') %> <a href="https://www.ruby-lang.org/de/" target="_blank" class="link-big"> Ruby</a>
+    
+  </div>
+  <h3>SASS</h3>
+  <div>
     <ul>
+      <li class="unten"><%= image_tag('logos/sass', width: '60px') %> <a href="http://sass-lang.com/" target="_blank" class="link-big">SASS</a></li>
+    </ul>
+    
+  </div>
+  <h3>JavaScript</h3>
+  <div>
+    <ul>
+      <li class="unten"><%= image_tag('logos/javascript', height: '30px', width: '30px') %> Javascript </li>
+      <li>Raty</li>
+      <li>Highcharts</li>
+    </ul>
+    
+  </div>
+  <h3>Jquery</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Jquery-UI</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Ruby</h3>
+  <div>
+    <ul>
+      <li class="unten" ><%= image_tag('logos/ruby', height: '30px', width: '30px') %> <a href="https://www.ruby-lang.org/de/" target="_blank" class="link-big"> Ruby</a></li>
       <li>Ternary operator for dynamic page title: <code> 
         @page_title ? @page_title : 'Welcome'  | Books
       </code></li>
@@ -25,37 +93,61 @@
       <li>Array functions: <code>Author.all.collect{|x| [x.lname + ', ' + x.fname, x.id]}.sort</code> </li>
       <li>Tag as optional value for Model book: <code>belongs_to :tag, optional: true</code></li>
     </ul>
-   </li>
-   <li class="unten"><%= image_tag('logos/javascript', height: '30px', width: '30px') %> Javascript
+    
+  </div>
+  <h3>Rails</h3>
+  <div>
     <ul>
-      <li>Raty</li>
-      <li>Highcharts</li>
-    </ul>
-   </li>
-   <li class="unten"> <%= image_tag('logos/rails', width: '60px') %> <a href="http://guides.rubyonrails.org/" target="_blank" class="link-big">Ruby on Rails</a>
-    <ul>
+      <li class="unten"> <%= image_tag('logos/rails', width: '60px') %> <a href="http://guides.rubyonrails.org/" target="_blank" class="link-big">Ruby on Rails</a></li>
       <li>Models</li>
       <li>Controllers</li>
       <li>Views</li>
       <li>SQlite Database</li>
-      <li>Gems
-        <ul>
-          <li>bootstrap</li>
-          <li>jquery-rails</li>
-          <li>devise</li>
-          <li>chartkick</li>
-          <li>groupdate</li>
-          <li>time_difference</li>
-        </ul>
-      </li>
+      
     </ul>
-   </li>
-   <li class="unten"><%= image_tag('logos/sqlite', width: '60px') %> <a href="https://www.sqlite.org/" class="link-big" target="_blank">SQLite </a>
+    
+  </div>
+  <h3>Gems</h3>
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+  <h3>SQLite</h3>
+  <div>
     <ul>
+      <li class="unten"><%= image_tag('logos/sqlite', width: '60px') %> <a href="https://www.sqlite.org/" class="link-big" target="_blank">SQLite </a></li>
       <li><a href="http://sqlitebrowser.org/" target="_blank" class="link-small"> DB Browser</a></li>
     </ul>
-   </li>
-   <li class="unten"><%= image_tag('logos/sass', width: '60px') %> <a href="http://sass-lang.com/" target="_blank" class="link-big">SASS</a></li>
+    
+  </div>
+  <h3>Github</h3>
+  <ul>
    <li class="unten"><%= image_tag('logos/github', height: '30px', width: '30px') %> <a href="https://github.com/tilogermer/books" target="_blank" class="link-big"> Github</a></li>
-</ul>
+  </ul>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+    <p>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    </p>
+  </div>
+</div>
 
+
+
+<script>
+  $( function() {
+    $( "#accordion" ).accordion();
+        
+  } );
+  </script>
