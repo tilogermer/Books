@@ -43,6 +43,98 @@
   <div>
     <ul>
       <li class="unten"><%= image_tag('logos/sass', width: '60px') %> <a href="http://sass-lang.com/" target="_blank" class="link-big">SASS</a></li>
+      <li>most mature, stable, and powerful professional grade CSS extension language in the world.</li>
+      <li>Sass has been actively supported for about 11 years by its loving Core Team.</li>
+      <li>CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain</li>
+      <li>This is where a preprocessor can help. Sass lets you use features that don't exist in CSS yet</li>
+      
+      <dl>
+        <dt>Variables</dt>
+        <dd>You can store things like colors, font stacks, or any CSS value you think you'll want to reuse. Sass uses the $ symbol to make something a variable<hr>
+        <pre>
+          $font-stack:    Helvetica, sans-serif;
+          $primary-color: #333;
+
+          body {
+               font: 100% $font-stack;
+               color: $primary-color;
+          }
+        </pre><hr>
+        </dd>
+        <dt>Nesting</dt>
+        <dd>nest your CSS selectors in a way that follows the same visual hierarchy of your HTML<hr> <pre>nav {
+                      ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                      }
+
+                      li { display: inline-block; }
+
+                      a {
+                        display: block;
+                        padding: 6px 12px;
+                        text-decoration: none;
+                      }
+}</pre><hr></dd>
+<dt>Partials</dt>
+<dd>You can create partial Sass files that contain little snippets of CSS that you can include in other Sass files. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is simply a Sass file named with a leading underscore. You might name it something like <code>_partial.scss</code>.</dd>
+<dt>Import</dt>
+<dd>Sass builds on top of the current CSS @import but instead of requiring an HTTP request, Sass will take the file that you want to import and combine it with the file you're importing into so you can serve a single CSS file to the web browser.<br>
+<code>@import 'filename'</code></dd>
+<dt>Mixins</dt>
+<dd>A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mixin more flexible.
+  <hr>
+<pre>
+  @mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+</pre><hr></dd>
+<dt>Extend/Inheritance</dt>
+<dd>Using <code>@extend</code> lets you share a set of CSS properties from one selector to another
+<pre>
+  %message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+</pre><hr></dd>
+<dt>Operators</dt>
+<dd>Doing math in your CSS is very helpful
+  <hr>
+<pre>
+  .container { width: 100%; }
+
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+</pre><hr>
+
+</dd>
+
+      </dl>
+      <li class="unten"><%= image_tag('logos/sass', width: '60px') %> <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank" class="link-big">Functions</a>
+        <ul>
+          <li>ligthen</li>
+          <li>darken</li>
+          <li>saturate</li>
+        </ul></li>
     </ul>
     
   </div>

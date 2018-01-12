@@ -3,7 +3,6 @@
 	<div class="col-md-4">
 		
 		<div class="card">
-			
 			<%= image_tag @book.image_url.to_s, class: "img-fluid card-img-top" %>
 			<div class="bg-light">
 				<%= image_tag (@book.reader.readerpath), class: "avatar-small" %>
@@ -11,78 +10,72 @@
 				<p class="badge badge-info text-center"><%= @book.tag %></p>
 				<% end %>
 			</div>
-		</a>
-		<div class="card-text">
-			<p class="card-text text-center flex-item"grow"><%= @book.title %></p>
-		</div>
 		
-		<div class="card-footer text-center">
-			<small class="text-muted"><%= remove_unwanted_words time_ago_in_words(@book.created_at) %> ago</small>
-		</div>
+			<div class="card-text">
+				<p class="card-text text-center flex-item"grow"><%= @book.title %></p>
+			</div>
+			
+			<div class="card-footer text-center">
+				<small class="text-muted"><%= remove_unwanted_words time_ago_in_words(@book.created_at) %> ago</small>
+			</div>
 		
-	</div>
+	    </div>
+    </div>
 
-
-	
-</div>
-
-<div class="col-md-8">
+    <div class="col-md-8">
 	
 	
-	<div id="tabs">
-		<ul>
-			<li><a href="#tabs-1">Details</a></li>
-			<li><a href="#tabs-2">Content</a></li>
-			<li><a href="#tabs-3">Rating</a></li>
-		</ul>
-		<div id="tabs-1">
+	    <div id="tabs">
 			<ul>
-				<li> Title: <%= @book.title %>
-					<% if @book.tag %>
-					<span class="badge badge-info"> <%= link_to @book.tag.name, books_path(tag: @tag.name), class:"white" %></span>
-					<% end %>	
-				</li>
-				<li>
-					<% if @book.author.fname != "DVD" %>
-					<%= link_to @book.author.fname + ' ' + @book.author.lname , author_path(@author.id), class: "link-big" %>
-					<% end %>
-				</li>
-				<li>Library: <%= @book.library.name %></li>
-				<li>Reader: <%= @book.reader.name %></li>
-				<li>Category: <%= @book.category.name %></li>
-				<li>Medium: <%= @book.medium.name %></li>
-				<li>Year: <%= @book.year %> </li>
-				<li>Price: <%= @book.price %> EUR</li>
-				<li>Return date: <%= @book.return_date.strftime('%a, %d %b') %></li>
-				<li>Loan Period: <%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</li>
+				<li><a href="#tabs-1">Details</a></li>
+				<li><a href="#tabs-2">Content</a></li>
+				<li><a href="#tabs-3">Rating</a></li>
 			</ul>
-			<div class="links btn-group">
-				<%= link_to "Back", books_path, class: "btn btn-custom" %>
+		    <div id="tabs-1">
+				<ul>
+					<li> Title: <%= @book.title %>
+						<% if @book.tag %>
+						<span class="badge badge-info"> <%= link_to @book.tag.name, books_path(tag: @tag.name), class:"white" %></span>
+						<% end %>	
+					</li>
+					<li>
+						<% if @book.author.fname != "DVD" %>
+						<%= link_to @book.author.fname + ' ' + @book.author.lname , author_path(@author.id), class: "link-big" %>
+						<% end %>
+					</li>
+					<li>Library: <%= @book.library.name %></li>
+					<li>Reader: <%= @book.reader.name %></li>
+					<li>Category: <%= @book.category.name %></li>
+					<li>Medium: <%= @book.medium.name %></li>
+					<li>Year: <%= @book.year %> </li>
+					<li>Price: <%= @book.price %> EUR</li>
+					<li>Return date: <%= @book.return_date.strftime('%a, %d %b') %></li>
+					<li>Loan Period: <%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</li>
+				</ul>
+				<div class="links btn-group">
+					<%= link_to "Back", books_path, class: "btn btn-custom" %>
 
-				<%= link_to "Edit", edit_book_path, class: "btn btn-custom" %>
-				<%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
-
+					<%= link_to "Edit", edit_book_path, class: "btn btn-custom" %>
+					<%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+				</div>
 			</div>
+		    <div id="tabs-2">
+				<div class="book-description">
+					<%= markdown(@book.description) %>
+				</div>
 			
-		</div>
-		<div id="tabs-2">
-			<div class="book-description">
-				<%= markdown(@book.description) %>
 			</div>
-			
-		</div>
-		<div id="tabs-3">
-			<h6 class="avg-rating text-muted">Average Rating</h6>
-			
-			<div class="average-review-rating" data-score=<%= @average_review %>></div>
-			<span class="number-of-reviews text-muted" >Based on <%= @book.reviews.count %> reviews</span>
-			
-		</div>
+			<div id="tabs-3">
+				<h6 class="avg-rating text-muted">Average Rating</h6>
+				
+				<div class="average-review-rating" data-score=<%= @average_review %>></div>
+				<span class="number-of-reviews text-muted" >Based on <%= @book.reviews.count %> reviews</span>
+			</div>
 		
 	</div>
 	
 </div>
-
+</div>
 <div class="row">
 	<div class="col-md-4">
 		<div class="reviews">
@@ -94,7 +87,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 
 	<script>
 		$( function() {

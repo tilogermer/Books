@@ -1,0 +1,22 @@
+<div class="card">
+					
+					<a href="/books/<%= book.slug %>">
+						<%= image_tag book.image_url.to_s, class: "img-fluid card-img-top" %>
+						
+						<div class="bg-light">
+						<%= image_tag (book.reader.readerpath), class: "avatar-small" %>
+						<% unless params[:tag] %>
+						<p class="badge badge-info text-center"><%= book.tag %></p>
+						<% end %>
+						</div>
+						</a>
+						
+						<div class="card-text">
+						<p class="card-text text-center flex-item"grow"><%= book.title %></p>
+						</div>
+					
+				<div class="card-footer text-center">
+      <small class="text-muted"><%= remove_unwanted_words time_ago_in_words(book.created_at) %> ago</small>
+    </div>
+		
+	</div>
