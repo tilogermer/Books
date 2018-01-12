@@ -55,4 +55,4 @@ class Book < ApplicationRecord
     	where("title LIKE ?","%#{search}%" )
     end
 	
-end
+	end
