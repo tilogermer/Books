@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105090653) do
+ActiveRecord::Schema.define(version: 20180112102813) do
 
   create_table "abouts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180105090653) do
     t.string "authorpath"
     t.string "slug"
     t.string "image"
+    t.text "details"
+    t.text "work"
   end
 
   create_table "books", force: :cascade do |t|

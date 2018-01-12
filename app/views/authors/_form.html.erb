@@ -9,14 +9,11 @@
 
 <div class="form-group row">
 <%= f.label :first_name, class: "col-sm-2 col-form-label" %>
-<div class="col-sm-10">
+<div class="col-sm-4">
 <%= f.text_field :fname, class: 'form-control' %>
 </div>
-</div>
-
-<div class="form-group row">
 <%= f.label :last_name, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-10">
+<div class="col-sm-4">
 <%= f.text_field :lname, class: 'form-control' %>
 </div>
 </div>
@@ -24,38 +21,40 @@
 <div class="form-group row">
 <%= f.label :image, class: "col-sm-2 col-form-label" %>
 <div class="col-sm-10">
-<%= f.file_field :image, class: 'form-control' %><br />
+<%= f.file_field :image, class: 'form-control' %>
 </div>
 </div>
-
-<div class="form-group row">
-<%= f.label :authorpath, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-10">
-<%= f.text_field :authorpath, class: 'form-control' %>
-</div>
-</div>
-
 <div class="form-group row">
 <%= f.label :category, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-10">
+<div class="col-sm-4">
 <%= f.select :category_id, Category.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+</div>
+<%= f.label :country, class: "col-sm-2 col-form-label" %>
+<div class="col-sm-4">
+<%= f.select :country_id, Country.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
 </div>
 </div>
 
 <div class="form-group row">
-<%= f.label :country, class: "col-sm-2 col-form-label" %>
+<%= f.label :details, class: "col-sm-2 col-form-label" %>
 <div class="col-sm-10">
-<%= f.select :country_id, Country.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+<%= f.text_area :details, class: 'form-control', rows: 4 %>
 </div>
 </div>
 
 <div class="form-group row">
 <%= f.label :description, class: "col-sm-2 col-form-label" %>
 <div class="col-sm-10">
-<%= f.text_area :description, class: 'form-control' %>
+<%= f.text_area :description, class: 'form-control', rows: 4 %>
 </div>
 </div>
 
+<div class="form-group row">
+<%= f.label :work, class: "col-sm-2 col-form-label" %>
+<div class="col-sm-10">
+<%= f.text_area :work, class: 'form-control', rows: 4 %>
+</div>
+</div>
 <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <%= link_to 'Cancel', authors_path, class: 'btn btn-default' %>
 
