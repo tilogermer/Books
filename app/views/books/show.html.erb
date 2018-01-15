@@ -33,16 +33,17 @@
 			</ul>
 		    <div id="tabs-1">
 				<ul>
-					<li> Title: <%= @book.title %>
-						<% if @book.tag %>
-						<span class="badge badge-info"> <%= link_to @book.tag.name, books_path(tag: @tag.name), class:"white" %></span>
-						<% end %>	
+					<li> Title: <%= @book.title %></li>
+					<% if @book.tag %>
+					<li> <span class="badge badge-info"> <%= link_to @book.tag.name, books_path(tag: @tag.name), class:"white" %></span>
+							
 					</li>
+					<% end %>
+					<% if @book.author.fname != "DVD" %>
 					<li>
-						<% if @book.author.fname != "DVD" %>
-						<%= link_to @book.author.fname + ' ' + @book.author.lname , author_path(@author.id), class: "link-big" %>
-						<% end %>
+					<%= link_to @book.author.fname + ' ' + @book.author.lname , author_path(@author.id), class: "link-big" %>
 					</li>
+					<% end %>
 					<li>Library: <%= @book.library.name %></li>
 					<li>Reader: <%= @book.reader.name %></li>
 					<li>Category: <%= @book.category.name %></li>
