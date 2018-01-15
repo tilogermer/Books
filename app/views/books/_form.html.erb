@@ -37,9 +37,9 @@
 <div class="col-sm-4">
 <%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
 </div>
-<%= f.label :tag, class: "col-sm-2 col-form-label"  %>
+<%= f.label :tags, class: "col-sm-2 col-form-label"  %>
 <div class="col-sm-4">
-<%= f.select :tag_id, Tag.all.collect{|c| [c.name, c.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
+	<%= f.text_field :all_tags, class: 'form-control' %>
 </div>
 </div>
 

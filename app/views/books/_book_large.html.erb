@@ -10,7 +10,11 @@
 						<div class="bg-light">
 						<%= image_tag (book.reader.readerpath), class: "avatar-small" %>
 						<% unless params[:tag] %>
-						<p class="badge badge-info text-center"><%= book.tag %></p>
+						<ul class="list-inline list-unstyled">
+					    <% book.tags.each do |tag| %>
+					    <li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+					    <% end %>
+					    </ul>
 						<% end %>
 						</div>
 						</a>

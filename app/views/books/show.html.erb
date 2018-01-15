@@ -7,7 +7,13 @@
 			<div class="bg-light">
 				<%= image_tag (@book.reader.readerpath), class: "avatar-small" %>
 				<% unless params[:tag] %>
-				<p class="badge badge-info text-center"><%= @book.tag %></p>
+
+				<ul class="list-inline list-unstyled">
+					    <% @book.tags.each do |tag| %>
+					    <li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+					    <% end %>
+					    </ul>
+				
 				<% end %>
 			</div>
 		
@@ -34,10 +40,10 @@
 		    <div id="tabs-1">
 				<ul>
 					<li> Title: <%= @book.title %></li>
-					<% if @book.tag %>
-					<li> <span class="badge badge-info"> <%= link_to @book.tag.name, books_path(tag: @tag.name), class:"white" %></span>
-							
-					</li>
+					<% if @book.tags %>
+					<% @tags.each do |tag| %>
+	 					<span class="badge badge badge-info"><%= link_to tag.name, books_path(tag: tag.name), class: "white" %></span>
+						<% end %>	
 					<% end %>
 					<% if @book.author.fname != "DVD" %>
 					<li>

@@ -61,7 +61,11 @@
 						
 						<% unless params[:tag] %>
 						<div class="bg-light-center">
-						<p class="badge badge-info text-center"><%= book.tag %></p>
+						<ul class="list-inline list-unstyled">
+						<% book.tags.each do |tag| %>
+						<li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+						<% end %>
+			            </ul>
 						</div>
 						<% end %>
 						</a>

@@ -73,8 +73,7 @@ class BooksController < ApplicationController
     
     @authors = Author.all
     @author = @book.author
-    @tags = Tag.all
-    @tag = @book.tag
+    @tags = @book.tags
     
     if @book.reviews.blank?
     @average_review = 0
@@ -103,7 +102,7 @@ class BooksController < ApplicationController
   private
 def book_params
   params.require(:book).permit(:title, :description, :author_id, :category_id, :tag_id, :medium_id, :reader_id,
-   :date_start, :return_date, :library_id, :isReturned, :price, :year, :isFavorite, :isNew, :image, :coverpath)
+   :date_start, :return_date, :library_id, :isReturned, :price, :year, :isFavorite, :isNew, :image, :coverpath, :all_tags)
 end
 
 def find_book
