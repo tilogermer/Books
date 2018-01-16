@@ -6,7 +6,7 @@
 			<div class="card-deck">
 				<div class="card">
 					<a href="/books/<%= book.id %>">
-						<%= image_tag (book.coverpath), class: "img-fluid card-img-top" %>
+						<%= image_tag book.image_url.to_s, class: "img-fluid card-img-top" %>
 						<div class="bg-light">
 						<%= image_tag (book.reader.readerpath), class: "avatar-small" %>
 						<% unless params[:tag] %>

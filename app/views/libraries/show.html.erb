@@ -12,12 +12,20 @@
 						<i class="mdi mdi-library"></i>
 				<%= @library.name %>
 			</div></h5>
+			
 
-				<h6>Books total: <%= @library.books.count %></h6>
-				<div class="book-description"><%= markdown(@library.description) %>
+			<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Details</a></li>
+				<li><a href="#tabs-2">Description</a></li>
+				<li><a href="#tabs-3">Notes</a></li>
+			</ul>
+		    <div id="tabs-1">
+				<ul>
+					<li> books total <%= @library.books.count %></li>
 					
-				</div>
-				
+				</ul>
+				<div><%= markdown(@library.details) %></div>	
 				<div class="links btn-group">
 					<%= link_to "Back", libraries_path, class: "btn btn-custom" %>
 
@@ -26,5 +34,36 @@
 
 				</div>
 			</div>
+		    <div id="tabs-2">
+				<div class="book-description">
+					<%= markdown(@library.description) %>
+				</div>
+			
+			</div>
+			<div id="tabs-3">
+				<div class="book-description">
+					<%= markdown(@library.notes) %>
+					
+					
+				</div>
+			</div>
+		
+	    </div>	
+
+
+
+				
+				
+					
+				</div>
+				
+				
+			</div>
 		</div>
 	</div>
+
+	<script>
+		$( function() {
+			$( "#tabs" ).tabs();
+		} );
+</script>

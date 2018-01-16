@@ -42,7 +42,7 @@ class LibrariesController < ApplicationController
 
   private
   def library_params
-    params.require(:library).permit(:name, :image, :description)
+    params.require(:library).permit(:name, :image, :description, :details, :notes)
   end
 
   def find_library
