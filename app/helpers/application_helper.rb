@@ -12,7 +12,12 @@ module ApplicationHelper
 	def markdown(text)
 		options = [autolink: true, tables: true, hard_wrap: true, filter_html: true,
 		           no_intraemphasis: true, fenced_code_blocks: true, gh_blockcode: true]
-	    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, *options)
-        return markdown.render(text).html_safe
+	    if text.blank?
+	    	nil
+	    else
+
+	      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, *options)
+          return markdown.render(text).html_safe
+        end
 	end
 end
