@@ -19,7 +19,7 @@ class BooksController < ApplicationController
 
     elsif params[:tag]
       @tag_id = Tag.find_by(name: params[:tag]).id
-      @books = Book.where(tag_id: @tag_id).page(params[:page]).sorted_des
+      @books = Book.tagged_with(params[:tag]).page(params[:page]).sorted_des
       @page_title = 'Tags'
 
     elsif params[:reader]
