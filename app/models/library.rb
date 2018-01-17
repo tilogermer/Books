@@ -12,6 +12,7 @@
 
 class Library < ApplicationRecord
 	has_many :books
+	has_many :loans, dependent: :destroy
 	
 	mount_uploader :image, ImageUploader
 

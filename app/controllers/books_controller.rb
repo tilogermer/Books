@@ -102,7 +102,9 @@ class BooksController < ApplicationController
   private
 def book_params
   params.require(:book).permit(:title, :description, :author_id, :category_id, :tag_id, :medium_id, :reader_id,
-   :date_start, :return_date, :library_id, :isReturned, :price, :year, :isFavorite, :isNew, :image, :coverpath, :all_tags)
+   :date_start, :return_date, :library_id, :isReturned, :price, :year,
+   :isFavorite, :isNew, :image, :coverpath, :all_tags,
+   loans_attributes: [:id, :date_start, :date_end, :library_id, :book_id, :reader_id, :is_returned, :_destroy])
 end
 
 def find_book

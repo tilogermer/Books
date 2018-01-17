@@ -12,6 +12,7 @@
 
 class Reader < ApplicationRecord
 	has_many :books
+	has_many :loans, dependent: :destroy
 
 	extend FriendlyId
     friendly_id :name, use: :slugged

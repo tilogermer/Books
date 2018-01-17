@@ -35,7 +35,10 @@ class Book < ApplicationRecord
 	has_many :reviews
 	has_many :taggings
 	has_many :tags, through: :taggings
+	has_many :loans, dependent: :destroy
 
+	accepts_nested_attributes_for :loans, allow_destroy: true
+	
 	extend FriendlyId
     friendly_id :title, use: :slugged
 
