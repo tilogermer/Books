@@ -94,7 +94,8 @@
 <div>
 	<p><strong>Loans</strong></p>
 	<div id="loans">
-		<%= f.fields_for :loans, Loan.new do |loan| %>
+		<%= f.fields_for :loans do |loan| %>
+		
 		<%= render 'loan_fields', f: loan %>
 		<% end %>
 		<div class="links">

@@ -50,12 +50,14 @@ class BooksController < ApplicationController
   
   def new_books
     @books = Book.where(isNew: true).order("created_at ASC")
+
     @page_title = 'new'
   end
 
   def new
     @page_title = 'Add book'
     @book = current_user.books.build
+    @book.loans.build
     
   end
 
