@@ -14,7 +14,7 @@ before_action :find_tag, only: [:show, :edit, :update, :destroy]
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
-      flash[:notice] = "Tag created"
+      flash[:info] = "Tag created"
       redirect_to tags_path
     else
       render 'new'
@@ -27,7 +27,7 @@ before_action :find_tag, only: [:show, :edit, :update, :destroy]
   def update
     @tag.update(tag_params)
     
-      flash[:notice] = "Tag updated"
+      flash[:info] = "Tag updated"
     
       redirect_to tags_path
   
@@ -40,7 +40,7 @@ before_action :find_tag, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @tag.destroy
-    flash[:notice] = "Tag removed"
+    flash[:danger] = "Tag removed"
     redirect_to tags_path
   end
 

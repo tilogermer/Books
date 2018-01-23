@@ -14,7 +14,7 @@ class CountriesController < ApplicationController
   def create
     @country = Country.new(country_params)
      if @country.save
-      flash[:notice] = "Country Created"
+      flash[:info] = "Country Created"
       redirect_to countries_path
     else
       render 'new'
@@ -31,13 +31,13 @@ class CountriesController < ApplicationController
 
   def update
     @country.update(country_params)
-    flash[:notice] = "Country updated"
+    flash[:info] = "Country updated"
     redirect_to countries_path
   end
 
   def destroy
     @country.destroy
-    flash[:notice] = "Country removed"
+    flash[:danger] = "Country removed"
     redirect_to countries_path
   end
 

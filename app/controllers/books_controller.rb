@@ -65,6 +65,7 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
     
     if @book.save
+      flash[:info] = "Book created"
        redirect_to books_path
     else
       render 'new'
@@ -76,6 +77,7 @@ class BooksController < ApplicationController
     @authors = Author.all
     @author = @book.author
     @tags = @book.tags
+    @page_title = @book.title
     
     if @book.reviews.blank?
     @average_review = 0
@@ -92,12 +94,13 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
-    flash[:notice] = 'Book updated'
+    flash[:info] = 'Book updated'
     redirect_to books_path
   end
 
   def destroy
     @book.destroy
+    flash[:danger] = "Book removed"
     redirect_to books_path
   end
 

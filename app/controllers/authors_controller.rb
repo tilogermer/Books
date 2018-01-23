@@ -21,7 +21,7 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new(author_params)
     if @author.save
-      flash[:notice] = "Author created"
+      flash[:info] = "Author created"
       redirect_to authors_path
     else
       render 'new'
@@ -33,6 +33,7 @@ class AuthorsController < ApplicationController
      @books = @author.books
      @categories = Category.all
      @countries = Country.all
+     @page_title = @author.fname + ' ' + @author.lname
   end
 
   def edit
@@ -40,13 +41,13 @@ class AuthorsController < ApplicationController
 
   def update
     @author.update(author_params)
-    flash[:notice] = "Author udpated"
+    flash[:info] = "Author udpated"
     redirect_to authors_path
   end
 
   def destroy
     @author.destroy
-    flash[:notice] = "Author removed"
+    flash[:danger] = "Author removed"
     redirect_to authors_path
   end
 

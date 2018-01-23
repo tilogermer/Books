@@ -14,7 +14,7 @@ class MediaController < ApplicationController
   def create
     @medium = Medium.new(medium_params)
     if @medium.save
-      flash[:notice] = "Medium Created"
+      flash[:info] = "Medium Created"
       redirect_to media_path
     else
       render 'new'
@@ -31,13 +31,13 @@ class MediaController < ApplicationController
 
   def update
     @medium.update(medium_params)
-    flash[:notice] = 'Medium updated'
+    flash[:info] = 'Medium updated'
     redirect_to media_path
   end
 
   def destroy
     @medium.destroy
-    flash[:notice] = "Medium removed"
+    flash[:danger] = "Medium removed"
     redirect_to media_path
   end
 

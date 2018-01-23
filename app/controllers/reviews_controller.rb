@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     
     if @review.save
+      flash[:info] = "Review Created"
       redirect_to book_path(@book)
     else
       render 'new'
@@ -30,6 +31,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
+      flash[:info] = "Review Created"
       redirect_to book_path(@book)
     else
       render 'edit'
@@ -38,6 +40,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
+    flash[:danger] = "Review removed"
     redirect_to book_path(@book)
   end
 

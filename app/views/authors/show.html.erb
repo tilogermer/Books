@@ -22,7 +22,7 @@
 				<ul>
 					<li><%= @author.country.name %></li>
 					<li><%= @author.category.name %></li>
-					<li><%= @author.books.count %> books </li>
+					<li><%= pluralize(@author.books.count, "book") %> </li>
 
 				</ul>
 				<div><%= markdown(@author.details) %></div>

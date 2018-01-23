@@ -58,6 +58,12 @@
 					<li>Price: <%= @book.price %> EUR</li>
 					<li>Return date: <%= @book.return_date.strftime('%a, %d %b') %></li>
 					<li>Loan Period: <%= TimeDifference.between(@book.date_start, @book.return_date).in_days.to_int %> days</li>
+					<% unless @book.loans.empty? %>
+					<% @book.loans.each do |loan| %>
+					<li><%= loan.date_start %> | <%= loan.date_end %> | <%= loan.reader.name %> | <%= loan.library.name %> | <%= loan.is_returned %></li>
+					<% end %>
+					<% end %>
+
 				</ul>
 				<div class="links btn-group">
 					<%= link_to "Back", books_path, class: "btn btn-custom" %>

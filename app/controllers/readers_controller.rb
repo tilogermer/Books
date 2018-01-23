@@ -14,7 +14,7 @@ class ReadersController < ApplicationController
   def create
     @reader = Reader.new(reader_params)
     if @reader.save
-      flash[:notice] = "Reader Created"
+      flash[:info] = "Reader Created"
       redirect_to readers_path
     else
       render 'new'
@@ -27,18 +27,19 @@ class ReadersController < ApplicationController
   def show
     @readers = Reader.all
     @books = @reader.books.page(params[:page]).order("return_date DESC")
+    @page_title = @reader.name
     
   end
 
   def update
     @reader.update(reader_params)
-    flash[:notice] = "Reader updated"
+    flash[:info] = "Reader updated"
     redirect_to readers_path
   end
 
   def destroy
     @reader.destroy
-    flash[:notice] = "Reader removed"
+    flash[:danger] = "Reader removed"
     redirect_to readers_path
   end
 

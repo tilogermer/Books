@@ -14,8 +14,8 @@
 #
 
 class Author < ApplicationRecord
-	belongs_to :country
-	belongs_to :category
+	belongs_to :country, optional: :true
+	belongs_to :category, optional: :true
 	has_many :books
 
 	mount_uploader :image, ImageUploader

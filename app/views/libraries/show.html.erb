@@ -22,7 +22,7 @@
 			</ul>
 		    <div id="tabs-1">
 				<ul>
-					<li> books total <%= @library.books.count %></li>
+					<li><%= pluralize(@library.books.count, "book") %></li>
 					
 				</ul>
 				<div><%= markdown(@library.details) %></div>	

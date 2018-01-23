@@ -14,7 +14,7 @@ class LibrariesController < ApplicationController
   def create
     @library = Library.new(library_params)
     if @library.save
-      flash[:notice] = "Library Created"
+      flash[:info] = "Library Created"
       redirect_to libraries_path
     else
       render 'new'
@@ -23,6 +23,7 @@ class LibrariesController < ApplicationController
 
   def show
     @books = @library.books
+    @page_title = @library.name
   end
 
   def edit
@@ -30,13 +31,13 @@ class LibrariesController < ApplicationController
 
   def update
     @library.update(library_params)
-    flash[:notice] = "Library updated"
+    flash[:info] = "Library updated"
     redirect_to libraries_path
   end
 
   def destroy
     @library.destroy
-    flash[:notice] = "Library removed"
+    flash[:danger] = "Library removed"
     redirect_to libraries_path
   end
 

@@ -14,7 +14,7 @@
 				<%= @tag.name %>
 			</div></h5>
 
-				<h6>Books total: <%= @tag.books.count %></h6>
+				<h6><%= pluralize(@tag.books.count, "book") %></h6>
 				<div class="book-description"><%= markdown(@tag.description)
 				 %></div>
 				
