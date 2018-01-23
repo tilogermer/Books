@@ -4,6 +4,7 @@ before_action :find_tag, only: [:show, :edit, :update, :destroy]
   def index
     @page_title = 'Tags'
     @tags = Tag.all.order("name ASC")
+
   end
 
   def new
