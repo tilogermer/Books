@@ -47,7 +47,6 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem 'friendly_id'
 gem 'redcarpet'
-gem 'paperclip'
 gem 'cocoon'
 
 group :development, :test do

@@ -3,11 +3,11 @@
 	<div class="form-group row">
       <%= f.label :Start, class: "col-sm-2 col-form-label"  %>
       <div class="col-sm-4">
-        <%= f.date_field :date_start, class: 'form-control datepicker' %>
+        <%= f.date_field :date_start, class: 'form-control' %>
       </div>
         <%= f.label :End, class: "col-sm-2 col-form-label"  %>
       <div class="col-sm-4">
-        <%= f.date_field :date_end, class: 'form-control datepicker' %>
+        <%= f.date_field :date_end, class: 'form-control' %>
       </div>
     </div>
 	
@@ -21,7 +21,7 @@
          <%= f.select :reader_id, Reader.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
        </div>
 	</div>
-
-	<%= f.check_box :is_returned, class: 'form-control' %>
+  <%= f.label :is_returned %>
+	<%= f.check_box :is_returned, class: 'form-control form-check-inline' %>
 	<%= link_to_remove_association "remove loan", f %>
 </div>
