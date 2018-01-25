@@ -1,5 +1,18 @@
 <%= form_for @book,  html: {multipart: true} do |f| %>
 
+<% if @book.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@book.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @book.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="form-group row">
 <%= f.label :title, class: "col-sm-2 col-form-label" %>
 <div class="col-sm-10">
@@ -89,7 +102,7 @@
 <%= f.date_field :return_date, class: 'form-control' %>
 </div>
 </div>
-
+<hr>
 <div>
 	<p><strong>Loans</strong></p>
 	<div id="loans">

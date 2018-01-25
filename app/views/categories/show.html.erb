@@ -1,2 +1,31 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+
+<div class="row">
+		<div class="col-md-4">
+			<%= image_tag @category.image_url.to_s, class: "img-fluid" %>
+		</div>
+
+		<div class="col-md-8">
+			<div class="book-info">
+				
+				<h5 class="section-title-home">
+					<div class="section-title-home-content">
+						<i class="mdi mdi-tag"></i>
+				<%= @category.name %>
+			</div></h5>
+
+				<h6><%= pluralize(@category.books.count, "book") %></h6>
+				<div class="book-description"><%= markdown(@category.description)
+				 %></div>
+				
+				<div class="links btn-group">
+					<%= link_to "Back", categories_path, class: "btn btn-custom" %>
+
+					<%= link_to "Edit", edit_category_path, class: "btn btn-custom" %>
+					<%= link_to "Delete", category_path(@category), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%= render 'books/book_large' %>

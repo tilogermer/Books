@@ -15,7 +15,8 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= requier cocoon
+//= require cocoon
+//= require global
 //= require highcharts
 //= require chartkick
 //= require popper

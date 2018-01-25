@@ -57,7 +57,7 @@ class BooksController < ApplicationController
   def new
     @page_title = 'Add book'
     @book = current_user.books.build
-    @book.loans.build
+    #@book.loans.build
     
   end
 

@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
   def show
     @categories = Category.all
     @books = @category.books
+    
   end
 
   def edit
@@ -44,7 +45,7 @@ class CategoriesController < ApplicationController
   
   private 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :image, :description)
   end
 
   def find_category

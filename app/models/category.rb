@@ -11,6 +11,8 @@
 class Category < ApplicationRecord
 	has_many :books
 
+	mount_uploader :image, ImageUploader
+	
 	extend FriendlyId
     friendly_id :name, use: :slugged
 
