@@ -20,8 +20,9 @@
 			</ul>
 		    <div id="tabs-1">
 				<ul>
-					<li><%= @author.country.name %></li>
-					<li><%= @author.category.name %></li>
+					<% 
+					<li><%= @author.country.name unless @author.country.empty %></li>
+					<li><%= @author.category.name unless @author.category.empty %></li>
 					<li><%= pluralize(@author.books.count, "book") %> </li>
 
 				</ul>

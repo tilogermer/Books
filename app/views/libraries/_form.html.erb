@@ -1,11 +1,6 @@
 <%= form_for @library, html: {multipart: true}  do  |f| %>
-<!--Check for errors -->
-<% if @library.errors.any? %>
-<% @library.errors.full_messages.each do |msg| %>
-<!-- Show errors -->
-<div class="alert alert-danger"><%= msg %></div>
-<% end %>
-<% end %>
+
+<%= render 'shared/error_messages', object: f.object %>
  
 <div class="form-group row">
 <%= f.label :name, class: "col-sm-2 col-form-label" %>

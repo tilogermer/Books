@@ -29,7 +29,7 @@ class Book < ApplicationRecord
 	belongs_to :category, optional: true
 	belongs_to :reader, optional: true
 	belongs_to :author, optional: true
-	belongs_to :medium, optional: true
+	belongs_to :medium
 	belongs_to :library
 	belongs_to :user
 	has_many :reviews
