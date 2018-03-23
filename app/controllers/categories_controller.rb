@@ -25,6 +25,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     @books = @category.books
     
+    
   end
 
   def edit

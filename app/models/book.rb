@@ -28,26 +28,28 @@
 class Book < ApplicationRecord
 	belongs_to :category, optional: true
 	belongs_to :reader, optional: true
-	belongs_to :author, optional: true
-	belongs_to :medium
-	belongs_to :library
+	has_and_belongs_to_many :authors
+	belongs_to :medium, optional: true
+	belongs_to :library, optional: true
 	belongs_to :user
 	has_many :reviews
 	has_many :taggings
 	has_many :tags, through: :taggings
 	has_many :loans, dependent: :destroy
 
-	accepts_nested_attributes_for :loans, allow_destroy: true
+	accepts_nested_attributes_for :loans, allow_destroy: true,
+								   reject_if: proc {|attributes| attributes['date_start'].blank? }	
 	
 	extend FriendlyId
     friendly_id :title, use: :slugged
 
     mount_uploader :image, ImageUploader
 
-	scope :sorted, -> {order(return_date: :asc)}	
+	scope :sorted, -> {order(title: :asc)}	
 	scope :sorted_des, -> {order(return_date: :desc)}
-	scope :pending, -> {where(isReturned: false)}
-
+	scope :pending, -> {joins(:loans).merge(Loan.available)}
+	scope :books_top, -> {joins(:tags).merge(Tag.tops)}
+	scope :books_new, -> {joins(:tags).merge(Tag.news)}
 	
 	self.per_page = 24
 	

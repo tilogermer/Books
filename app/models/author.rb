@@ -16,8 +16,9 @@
 class Author < ApplicationRecord
 	belongs_to :country
 	belongs_to :category
-	has_many :books
+	has_and_belongs_to_many :books
 
+	
 	mount_uploader :image, ImageUploader
 	
 	extend FriendlyId

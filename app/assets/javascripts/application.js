@@ -21,5 +21,12 @@
 //= require chartkick
 //= require popper
 //= require bootstrap
+//= require bootstrap-multiselect
 //= require turbolinks
 //= require_tree .
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>

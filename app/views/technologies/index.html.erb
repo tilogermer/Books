@@ -8,7 +8,7 @@
   <div>
     <ul>
       <li class="unten"><%= image_tag('logos/w3c', height: '30px', width: '30px') %> <a href="https://w3schools.com/" class="link-big" target="_blank">w3schools</a></li>
-      <li>2014 recommandation released by <span title="World Wide Web Consortium"> W3C</span></li>
+      <li>2014 recommandation released by <span href="#" data-toggle="tooltip" title="World Wide Web Consortium"> W3C</span></li>
 
       <li>New semantic elementes like <code>header</code>, <code>footer</code>, <code>article</code> and <code>section</code></li>
       <li>New attributes of form elements like <code>number</code>, <code>date</code>, <code>time</code>, <code>calendar</code> and <code>range</code></li>
@@ -37,8 +37,27 @@
       <li>Media queries for small screens <code>@media (min-width: 768px) { ... }</code></li>
       <li>Special print layout with media query for print <code>@media only print { ... }</code></li>
       <li>Large selection of <a href="https://cdn.materialdesignicons.com/1.1.34/" class="link-small">Material Design Icons</a> - <i class="mdi mdi-pencil-box"></i><i class="mdi mdi-chart-bar"></i><i class="mdi mdi-home"></i> - with variable font-size and color</li>
+      
     </ul>
     
+  </div>
+  <h3>Bootstrap colors & variables</h3>
+  <div>
+    <div class="bg-light text-center">light</div>
+      <div class="bg-secondary text-center text-white">secondary</div>
+      <div class="bg-dark text-center text-white">dark</div>
+      <div class="bootstrap-green text-center text-muted">success $green: #28a745</div>
+      <div class="bootstrap-teal text-center text-muted">$teal: #20c997</div>
+      <div class="bootstrap-cyan text-center text-muted">info $cyan: #17a2b8</div>
+      <div class="bootstrap-blue text-center text-muted">primary $blue: #007bff</div>
+      <div class="bootstrap-yellow text-center text-muted">danger $yellow: #ffc107</div>
+      <div class="bootstrap-orange text-center text-muted">$orange: #fd7e14</div>
+      <div class="bootstrap-red text-center text-muted">warning $red: #dc3545</div>
+      <div class="lewagon-red text-center text-muted">Le wagon $red: #d23333</div>
+      <div class="bootstrap-purple text-center text-muted">$purple: #6f42c1</div>
+      <div class="bootstrap-indigo text-center text-muted">$indigo: #6610f2</div>
+      <div class="bootstrap-pink text-center text-muted">$pink: #e83e8c</div>
+      
   </div>
   <h3>SASS</h3>
   <div>
@@ -139,6 +158,7 @@ aside[role="complementary"] {
     </ul>
     
   </div>
+
   <h3>JavaScript</h3>
   <div>
     <ul>
@@ -148,6 +168,18 @@ aside[role="complementary"] {
     </ul>
     
   </div>
+  
+  <h3>CoffeeScript</h3>
+  <div>
+    <ul>
+      <li class="unten"><%= image_tag('logos/coffeescript', height: '50px', width: '50px') %> CoffeeScript </li>
+      <li>is a little language that compiles into JavaScript</li>
+      <li>The code compiles one-to-one into the equivalent JS, and there is no interpretation at runtime</li>
+      <li>adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability</li>
+    </ul>
+    
+  </div>
+
   <h3>Jquery</h3>
   <div>
     <p>
@@ -182,7 +214,8 @@ aside[role="complementary"] {
       <li>Ternary operator for dynamic page title: <code> 
         @page_title ? @page_title : 'Welcome'  | Books
       </code></li>
-      <li>Special functions: <code>time_ago_in_words(book.created_at)</code></li>
+      <li>Time function: <code>time_ago_in_words(book.created_at)</code></li>
+      <li>Automatic Pluralizer: <code>pluralize(@author.books.count, "book")</code></li>
       <li>Iterations: <code>@books.each do |book|</code></li>
       <li>Conditions: <code>if TimeDifference.between( Date.today, @return_date_min).in_days <= 3</code></li>
       <li>Array functions: <code>Author.all.collect{|x| [x.lname + ', ' + x.fname, x.id]}.sort</code> </li>
@@ -266,7 +299,9 @@ aside[role="complementary"] {
      $( "#accordion" ).accordion({
       heightStyle: "content"
     });
+    $('[data-toggle="tooltip"]').tooltip();
   } );
   </script>
+
 
   

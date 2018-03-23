@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui/start
+ *= require bootstrap-multiselect
  */
 
 @import "bootstrap";
@@ -32,6 +33,10 @@ body{
 }
 pre{
 	color: #699;
+}
+.multiselect-container{
+	width: 300px;
+
 }
 .book-description a{
   color: blue;
@@ -351,6 +356,43 @@ $step: 360deg/$total;
 	.ray:nth-child(#{$i}) {
 		background: adjust-hue(blue, $i * $step);
 	}
+}
+.bootstrap-purple{
+	background-color: $purple;
+}
+.bootstrap-red{
+	background-color: $red;
+}
+.bootstrap-orange{
+	background-color: $orange;
+}
+.bootstrap-blue{
+	background-color: $blue;
+}
+.bootstrap-teal{
+	background-color: $teal;
+}
+.bootstrap-green{
+	background-color: $green;
+}
+.bootstrap-yellow{
+	background-color: $yellow;
+}
+.bootstrap-indigo{
+	background-color: $indigo;
+}
+.bootstrap-pink{
+	background-color: $pink;
+}
+.bootstrap-cyan{
+	background-color: $cyan;
+}
+.lewagon-red{
+	background-color: #d23333;
+}
+.badge-purple{
+	background-color: $purple;
+	
 } 
 
 @media only print{
@@ -393,6 +435,7 @@ $step: 360deg/$total;
 		padding-right: 5px;
 	}
 }
+
 
 @media (max-width: 990px){
 	.header-books{

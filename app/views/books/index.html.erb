@@ -2,12 +2,7 @@
 	<% if params[:library] %>
 	  <h3><%= params[:library] %> <span class="badge badge-info"><%= @books.count %></span>
 		
-		<% if TimeDifference.between( Date.today, @return_date_min).in_days <= 3 %>
-		  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
-	    <% else %>
-	      <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
-		<% end %>
-
+		
 	<%= link_to "Back", books_path, class: "btn btn-outline-secondary btn-sm float-right small-device"  %>
 	</h3>
 
@@ -30,12 +25,7 @@
 	<div class="header-books">
 
 	  <h3 class="header-selection">Books lent <span class="badge badge-info"><%= @books.count %> </span>
-		<% if TimeDifference.between( Date.today,@return_date_min).in_days <= 3 %>
 		
-	  <span class="badge badge-danger"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
-	  <% else %>
-	  <span class="badge badge-purple"><%= @books.where(:isReturned => false).minimum(:return_date) %></span>
-		<% end %>
 	</h3>	
 	<div class="header-selection">
 
@@ -62,6 +52,7 @@
       <%= submit_tag "Search", :name => nil %>
       <% end %>
       <br>
+      
       <%= render 'book_small' %>
 	
 	<% end %>

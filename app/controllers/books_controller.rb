@@ -9,7 +9,7 @@ class BooksController < ApplicationController
 
   if params[:library]
       @library_id = Library.find_by(name: params[:library]).id
-      @books = Book.where(library_id: @library_id, isReturned: false).page(params[:page]).sorted
+      @books = Book.where(library_id: @library_id).page(params[:page]).sorted
       @page_title = 'Libraries'
 
     elsif params[:category]
@@ -24,19 +24,20 @@ class BooksController < ApplicationController
 
     elsif params[:reader]
       @reader_id = Reader.find_by(name: params[:reader]).id
-      @books = Book.where(reader_id: @reader_id, isReturned: false).page(params[:page]).sorted_des
+      @books = Book.where(reader_id: @reader_id).page(params[:page]).sorted_des
       @page_title = 'Readers' 
 
     elsif params[:search]
       @books = Book.search(params[:search]).page(params[:page]).order("title ASC")
 
     else
-      @books = Book.pending.page(params[:page]).sorted
+      @books = Book.page(params[:page]).sorted
       @page_title = 'Overlook'
     end
   end
    
   def booklist
+    @loans = Loan.available
     @books = Book.pending.sorted
     @categories = Category.all
     @readers = Reader.all
@@ -46,11 +47,12 @@ class BooksController < ApplicationController
   def booklist_all
     @books = Book.all.order("title ASC")
     @categories = Category.all
+    
   end
   
   def new_books
     @books = Book.where(isNew: true).order("created_at ASC")
-
+    
     @page_title = 'new'
   end
 
@@ -75,7 +77,7 @@ class BooksController < ApplicationController
   def show
     
     #@authors = Author.all
-    @author = @book.author
+    @authors = @book.authors
     @tags = @book.tags
     @page_title = @book.title
     
@@ -90,12 +92,13 @@ class BooksController < ApplicationController
   
 
   def edit
+
   end
 
   def update
     @book.update(book_params)
     flash[:info] = 'Book updated'
-    redirect_to books_path
+    redirect_to @book
   end
 
   def destroy
@@ -109,7 +112,8 @@ def book_params
   params.require(:book).permit(:title, :description, :author_id,  :category_id, :tag_id, :medium_id, :reader_id,
    :date_start, :return_date, :library_id, :isReturned, :price, :year,
    :isFavorite, :isNew, :image, :coverpath, :all_tags,
-   loans_attributes: [:id, :date_start, :date_end, :library_id, :book_id, :reader_id, :is_returned, :_destroy])
+   loans_attributes: [:id, :date_start, :date_end, :library_id, :book_id, :reader_id, :is_returned, :_destroy],
+   author_ids:[], tag_ids:[])
 end
 
 def find_book

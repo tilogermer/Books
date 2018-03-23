@@ -1,27 +1,35 @@
 <div class="nested-fields">
-	
-	<div class="form-group row">
-      <%= f.label :Start, class: "col-sm-2 col-form-label"  %>
-      <div class="col-sm-4">
-        <%= f.date_field :date_start, class: 'form-control' %>
-      </div>
-        <%= f.label :End, class: "col-sm-2 col-form-label"  %>
-      <div class="col-sm-4">
-        <%= f.date_field :date_end, class: 'form-control' %>
-      </div>
+  
+  <div class="form-group row">
+    <%= f.label :Start, class: "col-sm-2 col-form-label"  %>
+    <div class="col-sm-4">
+      <%= f.date_field :date_start, class: 'form-control' %>
     </div>
-	
-	<div class="form-group row">
-	   <%= f.label :library, class: "col-sm-2 col-form-label"   %>
-      <div class="col-sm-4">
-       <%= f.select :library_id, Library.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
-       </div>
-	     <%= f.label :reader, class: "col-sm-2 col-form-label"   %>
-       <div class="col-sm-4">
-         <%= f.select :reader_id, Reader.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
-       </div>
-	</div>
-  <%= f.label :is_returned %>
-	<%= f.check_box :is_returned, class: 'form-control form-check-inline' %>
-	<%= link_to_remove_association "remove loan", f %>
+    <%= f.label :End, class: "col-sm-2 col-form-label"  %>
+    <div class="col-sm-4">
+      <%= f.date_field :date_end, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+   <%= f.label :library, class: "col-sm-2 col-form-label"   %>
+   <div class="col-sm-4">
+     <%= f.select :library_id, Library.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+   </div>
+   <%= f.label :reader, class: "col-sm-2 col-form-label"   %>
+   <div class="col-sm-4">
+     <%= f.select :reader_id, Reader.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+   </div>
+ </div>
+ <div class="form-group row">
+  <%= f.label :retour, class: "col-sm-2 col-form-label"  %>
+  <div class="col-sm-4">
+    <%= f.check_box :is_returned, class: 'form-control form-check-inline' %>
+  </div>
+  <%= f.label :Delete_loan , class: "col-sm-2 col-form-label"  %>
+  <div class="col-sm-4">
+    <%= link_to_remove_association "remove", f, class:'btn btn btn-outline-secondary' %>
+  </div>
+</div>
+
 </div>

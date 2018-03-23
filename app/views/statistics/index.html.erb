@@ -11,43 +11,32 @@
 		<%= pie_chart Book.group(:library).count, donut: true %>
 	</div>
 	<div class="col-md-4">
-		<h6>Authors per country</h6>
-		<%= pie_chart Author.group(:country).count %>
+		<h6>Books per medium</h6>
+		<%= pie_chart Book.group(:medium).count %>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-4">
 		<h6>Books per category</h6>
-		<%= bar_chart Book.group(:category).count, colors: ["red"] %>
+		<%= bar_chart Book.group(:category).order('count_id desc').count('id'), colors: ["red"] %>
 	</div>
 	<div class="col-md-4">
 		<h6>Books per library</h6>
-		<%= bar_chart Book.group(:library).count %>
+		<%= bar_chart Book.group(:library).order('count_id desc').count('id') %>
 	</div>
 	<div class="col-md-4">
 		<h6>Authors per country</h6>
-		<%= bar_chart Author.group(:country).count, colors: ['blue'] %>
+		<%= bar_chart Author.group(:country).order('count_id desc').count('id'), colors: ['blue'] %>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-4">
-		<h6>Books per medium</h6>
-		<%= pie_chart Book.group(:medium).count %>
-	</div>
+	
 	<div class="col-md-4">
 		<h6>Sum per medium</h6>
 		<%= column_chart Book.group(:medium).sum(:price), library:{backgroundColor: "red"} %>
 	</div>
-	<div class="col-md-4">
-		<h6>Books per reader</h6>
-		<%= pie_chart Book.group(:reader).count %>
-	</div>
-</div>	
-
-<div class="row">
-    
 	<div class="col-md-4">
 		<h6>Books per month</h6>
 		<%= column_chart Book.group_by_month(:date_start, format: "%b").count , colors: ["purple"]%>
@@ -56,13 +45,9 @@
 		<h6>Books per year</h6>
 		<%= column_chart Book.group_by_year(:date_start, format: "%Y").count %>
 	</div>
-	<div class="col-md-4">
-		<h6>Authors by country</h6>
-		<%= authors_by_country %>
-		
-	</div>
-	
-</div>
+</div>	
+
+
 <script>
   $( function() {
     $('h2').tooltip();

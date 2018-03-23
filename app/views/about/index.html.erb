@@ -1,15 +1,15 @@
 	
-	<header>
-		<div class="bgimg">
+<header>
+	<div class="bgimg">
 
-			<h1 class="text-center text-white">World of Books</h1>
-			<h2 class="text-center text-white">Books <span class="badge badge-info"><%= @books.count %></span></h2>
-			
-			
-			<% if TimeDifference.between( Date.today, @return_date_min).in_days <= 3 %>
-			<h3 class="text-center text-white"> <span class="badge-danger"><%= @return_date_min %></span></h3>
-			<% else %>
-			<h3 class="text-center text-white"> <span class="badge-purple"><%= @return_date_min %></span>
+		<h1 class="text-center text-white">World of Books</h1>
+		<h2 class="text-center text-white">Books <span class="badge badge-info"><%= @loans.count %></span></h2>
+		
+		
+		<% if TimeDifference.between( Date.today, @return_date_min).in_days <= 3 %>
+		<h3 class="text-center text-white"> <span class="badge-danger"><%= @return_date_min %></span></h3>
+		<% else %>
+		<h3 class="text-center text-white"> <span class="badge-purple"><%= @return_date_min %></span>
 			<% end %>
 
 		</div>
@@ -24,69 +24,132 @@
 	
 
 	<ul>
-	<li>Application for Administration of books and readers in several libraries</li>
-	<li>Selection of books by library, author, reader, category or tag</li>
-	<li>Show all books lent with return date</li>
-	<li>Show all books for each author</li>
-	<li>Show all books for each reader</li>
-	<li>Reviews and Average reviews for a book</li>
+		<li>Application for Administration of books and readers in several libraries</li>
+		<li>Selection of books by library, author, reader, category or tag</li>
+		<li>Show all books lent with return date</li>
+		<li>Show all books for each author</li>
+		<li>Show all books for each reader</li>
+		<li>Reviews and Average reviews for a book</li>
 	</ul>	
-		<h2 class="section-title-home">
+	
+	<%#= render 'about/book_favorite' %>	
+
+	
+	
+	<h2 class="section-title-home">
 		<div class="section-title-home-content">
-			<i class="mdi mdi-library"> Our Favorites </i>
+			<i class="mdi mdi-library"> Our Tops </i>
 		</div>
 	</h2>	
-
-	<div class="row">
-		<% @readers.each do |reader| %>
-		<% @books1.each do |book| %>
+<div class="row">
+		<% @books2.each do |book| %>
 		
-		<% if reader.id === book.reader_id && book.isFavorite  %>
-		
-		<div class="col-md-3">
+		<div class="col-md-3 col-sm-6">
 			<div class="card-deck">
-				<div class="card favorite">
+				<div class="card">
 					<a href="/books/<%= book.id %>">
-						<%= image_tag book.image_url.to_s, class: " img-fluid card-img-top" %>
-						
+						<%= image_tag book.image_url.to_s, class: "img-fluid card-img-top" %>
 						<div class="bg-light">
-						<a href="/readers/<%= reader.id %>">
-						<div class="card-img-overlay">
-						<%= image_tag (book.reader.readerpath), class: "avatar" %>
-						</div>
-						
-						
-
-						</div>
-						
+						<% book.loans.each do |loan| %>
+						<%= image_tag loan.reader.try(:image_url).to_s, class: "avatar-small" %>
+						<% end %>
 						<% unless params[:tag] %>
-						<div class="bg-light-center">
 						<ul class="list-inline list-unstyled">
-						<% book.tags.each do |tag| %>
-						<li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+					    <% book.tags.each do |tag| %>
+					    <li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+					    <% end %>
+					    </ul>
 						<% end %>
-			            </ul>
 						</div>
-						<% end %>
 						</a>
-					</a>
-					<div class="card-text">
+						<div class="card-text">
 						<p class="card-text text-center flex-item"grow"><%= book.title %></p>
 						</div>
-				<span class="badge badge-purple" style="border-radius: 0;" ><%= reader.name %> <%= reader.books.where(:isReturned => false).count %> books</span>					
+					
+				<div class="card-footer text-center">
+      <small class="text-muted"><%= remove_unwanted_words time_ago_in_words(book.created_at) %> ago</small>
+    </div>
+				</div>
+			</div>
+		</div>
 
-				<div class="card-footer">
-      <small class="text-muted"><%= time_ago_in_words(book.created_at) %> ago</small>
+	<% end %>
+
+	</div>
+
+<h2 class="section-title-home">
+		<div class="section-title-home-content">
+			<i class="mdi mdi-library"> Our News </i>
+		</div>
+	</h2>	
+<div class="row">
+		<% @books3.each do |book| %>
+		
+		
+		<div class="col-md-3 col-sm-6">
+			<div class="card-deck">
+				<div class="card">
+					<a href="/books/<%= book.id %>">
+						<%= image_tag book.image_url.to_s, class: "img-fluid card-img-top" %>
+						<div class="bg-light">
+						<%= image_tag (book.reader.readerpath), class: "avatar-small" %>
+						<% unless params[:tag] %>
+						<ul class="list-inline list-unstyled">
+					    <% book.tags.each do |tag| %>
+					    <li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+					    <% end %>
+					    </ul>
+						<% end %>
+						</div>
+						</a>
+						<div class="card-text">
+						<p class="card-text text-center flex-item"grow"><%= book.title %></p>
+						</div>
+					
+				<div class="card-footer text-center">
+      <small class="text-muted"><%= remove_unwanted_words time_ago_in_words(book.created_at) %> ago</small>
     </div>
 				</div>
 			</div>
 		</div>
 		<% end %>
-		<% end %>
-		<% end %>
 
 	</div>
-	
 
-
+<h2 class="section-title-home">
+		<div class="section-title-home-content">
+			<i class="mdi mdi-library"> Popular Authors </i>
+		</div>
+	</h2>	
+<div class="row">
+		<% @authors1.each do |author| %>
+		
+		<div class="col-md-3 col-sm-6">
+	<div class="card-deck">
+		<div class="card">
+			<a href="/authors/<%= author.id %>">
+				<%= image_tag author.image_url.to_s, class: "img-fluid card-img-top" %>
+				
+			</a>
+			<br>
+			<h6 class="card-title text-center"><%= author.fname + ' ' + author.lname%> <span class="badge badge-purple"><%=author.books.count %></span> </h6>
+			<p class="text-center text-muted"><%= author.country.name %></p>
+			<div class="card-text">
+				<ul class="list-unstyled">
+				<% author.books.each do |book| %>
+				<li class="card-text text-center flex-item"grow"><%= book.title %></li>
+				<% end %>
+			</ul>
+			</div>
+			
+			<div class="card-footer text-center">
+				<small class="text-muted"><%= remove_unwanted_words time_ago_in_words(author.created_at) %> ago</small>
+			</div>
+		</div>
+	</div>
+</div>
+		
+		
+		<% end %>
+</div>
 

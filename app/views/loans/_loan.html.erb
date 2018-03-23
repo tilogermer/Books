@@ -1,0 +1,34 @@
+<div class="row">
+		<% @loans.each do |loan| %>
+		
+
+		<div class="col-md-3 col-xl-2 col-sm-6">
+			<div class="card-deck">
+				<div class="card">
+					<a href="/books/<%= loan.book_id %>">		
+						<%= image_tag loan.book.try(:image_url).to_s, class: "img-fluid card-img-top" %>
+						<div class="bg-light">
+						<%= image_tag loan.reader.try(:image_url).to_s , class: "avatar-small" %>
+						
+					<ul class="list-inline list-unstyled">
+					    <% loan.book.try(:tags).try(:each) do |tag| %>
+					    <li class="list-inline-item badge badge-info text-center"> <%= tag.name %></li>
+					    <% end %>
+					    </ul>
+														
+						
+						</div>
+						</a>
+						<div class="card-text">
+						<p class="card-text text-center flex-item"grow"><%= loan.book.try(:title) %></p>
+						</div>
+					
+				<div class="card-footer text-center">
+      <small class="text-muted"><%= remove_unwanted_words time_ago_in_words(loan.created_at) %> ago</small>
+    </div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	
+	</div>

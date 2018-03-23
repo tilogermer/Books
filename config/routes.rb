@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'books/new_books' => 'books#new_books'
   get 'statistics' => 'statistics#index'
   get 'technologies' => 'technologies#index'
-  
+  get 'loans' => 'loans#index'
   resources :books do
     resources :reviews
   end

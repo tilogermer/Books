@@ -1,0 +1,60 @@
+<% if params[:library] %>
+	  <h3><%= params[:library] %> <span class="badge badge-info"><%= @loans.count %></span>
+	
+	<%= render 'books/date' %>
+
+
+	<%= link_to "Back", loans_path, class: "btn btn-outline-secondary btn-sm float-right small-device"  %>
+	</h3>
+	
+	<% elsif params[:reader] %>
+	  <h3><%= params[:reader] %> <span class="badge badge-info"><%= @loans.count %></span>
+	  	<%= render 'books/date' %>
+		  <%= link_to "Back", loans_path, class: "btn btn-outline-secondary btn-sm float-right small-device"  %>
+	</h3>
+
+	<% else %>
+
+<div class="header-books">	
+	  <h3 class="header-selection">Loans <span class="badge badge-info"><%= @loans.count %> </span>
+
+		<%= render 'books/date' %>
+
+	  </h3>	
+
+	 
+
+	 <div class="header-selection">
+
+		<% Library.all.each do |library| %>
+		<% if library.loans.count > 0 %>
+		<%= link_to library.name, loans_path(library: library.name), class: "btn btn-outline-secondary btn-sm", style: "margin-left: 5px;" %>
+		<% end %>
+		<% end %>
+
+		<% Reader.all.each do |reader| %>
+		<% if reader.loans.count > 0 %>
+		<%= link_to reader.name, loans_path(reader: reader.name), class: "btn btn-outline-info btn-sm", style: "margin-left: 5px;" %>
+		<% end %>
+		<% end %>
+
+				
+	</div>
+</div>
+<% end %>
+
+<% if @loans.count == 0 %>
+	<h4>There are currently no books lent</h4>
+	<% else %>	
+	  <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Book" %>
+      <%= submit_tag "Search", :name => nil %>
+      <% end %>
+      <br>
+  
+	<%= render 'loan' %>
+	<% end %>
+	
+	<%= will_paginate @books, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+	
+	<%= link_to "Add Book", new_book_path, class: 'btn btn-outline-secondary btn-sm' %>

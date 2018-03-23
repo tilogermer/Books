@@ -14,6 +14,9 @@ class Tag < ApplicationRecord
 	has_many :taggings
 	has_many :books, through: :taggings
 
+	scope :tops, -> {where(name: "top")}
+	scope :news, -> {where(name: "new")}
+	
 	mount_uploader :image, ImageUploader
 
 	def to_s

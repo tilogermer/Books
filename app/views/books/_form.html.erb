@@ -4,49 +4,41 @@
 
 <div class="form-group row">
 <%= f.label :title, class: "col-sm-2 col-form-label" %>
-<div class="col-sm-10">
+<div class="col-sm-4">
 <%= f.text_field :title, class: 'form-control' %>
 </div>
-</div>
-
-<div class="form-group row">
 <%= f.label :image, class: "col-sm-2 col-form-label" %>
 <div class="col-sm-4">
 <%= f.file_field :image, class: 'form-control' %>
 </div>
-<%= f.label :tags, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-2">
-	<%= f.text_field :all_tags, class: 'form-control', id: 'tags' %>
+
+</div>
+
+<div class="form-group row">
+<%= f.label :category, class: "col-sm-2 col-form-label"  %>
+<div class="col-sm-4">
+<%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
+</div>
+
+<%= f.label :medium, class: "col-sm-2 col-form-label"  %>
+<div class="col-sm-4">
+<%= f.select :medium_id, Medium.all.collect{|x| [x.name, x.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
 </div>
 </div>
 
 <div class="form-group row">
 <%= f.label :Author, class: "col-sm-2 col-form-label"   %>	
 <div class="col-sm-4">
-<%= f.select :author_id, Author.all.collect{|x| [x.lname + ', ' + x.fname, x.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
+<%= f.select :author_ids, Author.all.collect{|x| [x.lname + ', ' + x.fname, x.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control ui-controls', multiple: true %>
 </div>
-<%= f.label :library, class: "col-sm-2 col-form-label"   %>
-<div class="col-sm-4">
-<%= f.select :library_id, Library.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
+<%= f.label :tags, class: "col-sm-2 col-form-label"  %>
+<div class="col-sm-4" >
+<%= f.select :tag_ids, Tag.all.collect{|x| [x.name, x.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control ui-controls', multiple: true %>
 </div>
 </div>
 
 
-<div class="form-group row">
-<%= f.label :reader, class: "col-sm-2 col-form-label"   %>
-<div class="col-sm-2">
-<%= f.select :reader_id, Reader.all.collect{|x| [x.name, x.id]}, {:include_blank => 'Select one'},  class: 'form-control' %>
-</div>
-<%= f.label :category, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-2">
-<%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
-</div>
 
-<%= f.label :medium, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-2">
-<%= f.select :medium_id, Medium.all.collect{|x| [x.name, x.id]}.sort, {:include_blank => 'Select one'},  class: 'form-control' %>
-</div>
-</div>
 
 <div class="form-group row">
 <%= f.label :year, class: "col-sm-2 col-form-label"  %>
@@ -66,31 +58,6 @@
 </div>
 </div>
 
-
-<div class="form-check form-check-inline">
-<%= f.label :Favorite %>
-<%= f.check_box :isFavorite, class: 'form-control' %>
-</div>
-
-<div class="form-check form-check-inline">
-<%= f.label :New %>
-<%= f.check_box :isNew, class: 'form-control' %>
-</div>
-<div class="form-chck form-check-inline">
-<%= f.label :Retour %>
-<%= f.check_box :isReturned, class: 'form-control' %>
-</div>
-
-<div class="form-group row">
-<%= f.label :Start, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-4">
-<%= f.date_field :date_start, class: 'form-control' %>
-</div>
-<%= f.label :End, class: "col-sm-2 col-form-label"  %>
-<div class="col-sm-4">
-<%= f.date_field :return_date, class: 'form-control' %>
-</div>
-</div>
 <hr>
 <div>
 	<p><strong>Loans</strong></p>
@@ -99,30 +66,27 @@
 		
 		<%= render 'loan_fields', f: loan %>
 		<% end %>
-		<div class="links">
-			<%= link_to_add_association 'add loan', f, :loans %>
+		<div class="links float-right">
+			<%= link_to_add_association 'add loan', f, :loans, class: 'btn btn-outline-secondary' %>
 		</div>
 	</div>
 </div>
-
+<br>
 
 <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <%= link_to 'Cancel', books_path, class: 'btn btn-default' %>
 <% end %>
 
-
 <script>
-	var availableTags = ["top", "new", "lotta", "sam", "mia", "tiptoi", "feen", "kati", "nick", "school", "cuisine"];
-	
-
 	$( function() {
-		$('#tags').autocomplete({
-			source: availableTags
-		});
+		
+	$('.ui-controls').multiselect({
+		enableFiltering: true,
+		enableFullValueFiltering: true,
+		enableCaseInsensitiveFiltering: true,
+		maxHeight: 300,
 	});
+});
 </script>
-<script>
-	$(function(){
-		$('.datepicker').datepicker();
-	});
-</script>
+
+

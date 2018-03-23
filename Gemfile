@@ -48,6 +48,7 @@ gem 'will_paginate-bootstrap4'
 gem 'friendly_id'
 gem 'redcarpet'
 gem 'cocoon'
+gem 'bootstrap-multiselect-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

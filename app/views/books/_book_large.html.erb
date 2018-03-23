@@ -8,7 +8,9 @@
 					<a href="/books/<%= book.id %>">
 						<%= image_tag book.image_url.to_s, class: "img-fluid card-img-top" %>
 						<div class="bg-light">
-						<%= image_tag (book.reader.readerpath), class: "avatar-small" %>
+						<% book.loans.each do |loan| %>
+						<%= image_tag loan.reader.try(:image_url).to_s, class: "avatar-small" %>
+						<% end %>
 						<% unless params[:tag] %>
 						<ul class="list-inline list-unstyled">
 					    <% book.tags.each do |tag| %>

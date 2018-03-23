@@ -8,18 +8,25 @@
 		<th>Image</th>
 		<th>Medium</th>
 		<th>Lib</th>
-		<th> Date</th>
-		<th class="printer" ">Actions</th>
+		<th> Year</th>
+		<th class="printer" style="width: 200px;" ">Actions</th>
 	</tr>
 	<% @books.each do |book| %>
 		<tr>
 			<td class="printer-font"><%= book.title %></td>
 			<td><%= image_tag book.image_url(:thumb).to_s %></td>
 			<td class="printer-font printer-font-color"><%= book.medium.name %></td>
-			<td class="printer-font printer-font-color"><%= book.library.name %></td>
-			<td class="text-dark printer-font"> <%= book.return_date.month %>/<%= book.return_date.year %></td>
-			<td class="printer"> <%= link_to "Show", book_path(book.id) %> | <%= link_to "Edit", edit_book_path(book) %> | <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: 'Are you sure'} %> </td>
-
+			<% if book.loans %>
+			
+			<% book.loans.each do |loan| %>
+			<td><%= loan.library.name %></td>
+			
+			<td><%= loan.date_end.year %></td>
+			<% end %>
+			<% end %>
+				
+			
+			<td class="printer"> <%= link_to "Show", book_path(book.id) %> | <%= link_to "Edit", edit_book_path(book.id) %> | <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: 'Are you sure'} %> </td>
 		</tr>
 	<% end %>
 </table>

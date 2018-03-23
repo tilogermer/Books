@@ -1,0 +1,5 @@
+<% if TimeDifference.between( Date.today, @return_date_min).in_days <= 3 %>
+		  <span class="badge badge-danger"><%= @return_date_min %></span>
+	    <% else %>
+	      <span class="badge badge-purple"><%= @return_date_min %></span>
+		<% end %>
